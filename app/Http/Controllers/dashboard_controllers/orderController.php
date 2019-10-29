@@ -17,7 +17,8 @@ class orderController extends Controller
      */
     public function index()
     {
-        return view('dash_pages.pages.Comments&Orders.order');
+        $orders=Order::All();
+        return view('dash_pages.pages.Comments&Orders.order' , compact('orders'));
     }
 
     /**

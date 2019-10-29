@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -33,24 +33,24 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 
-    public function categories(){
-        return $this -> hasMany(Category::class);
-    }
+    // public function categories(){
+    //     return $this -> hasMany(Category::class);
+    // }
 
-    public function products(){
-        return $this -> hasMany(Product::class);
-    }
+    // public function products(){
+    //     return $this -> hasMany(Product::class);
+    // }
 
-    public function comments(){
-        return $this -> hasMany(Comment::class);
-    }
+    // public function comments(){
+    //     return $this -> hasMany(Comment::class);
+    // }
 
-    public function messages(){
-        return $this -> hasMany(Message::class);
-    }
+    // public function messages(){
+    //     return $this -> hasMany(Message::class);
+    // }
 
 }
