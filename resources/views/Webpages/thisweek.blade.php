@@ -28,7 +28,6 @@
                             <!-- Product Meta Data -->
                             <div class="product-meta-data">
                                 <div class="line"></div>
-                    <a href="{{url('shop/1')}}"> <h6>{{$product->Category->name }}</h6></a>
                                 <p class="product-price">${{$product -> price}}</p>
                             <a href="..\product\{{$product->id}}">
                                     <h6>{{$product -> name}}</h6>
@@ -41,10 +40,9 @@
 
                                 </div>
                                 <div class="cart">
-                                <form  action="{{route('cartstore')}}" method="post">
+                                      <form  action="{{route('product',$product->id)}}" method="get">
                                          @csrf
-                                        <input type="hidden" name="productID" value="{{$product->id}}">
-                                        <button type="submit" name="addtocart"  data-placement="left" title="Add to Cart"><img src="/img/core-img/cart.png" alt=""></button>
+                                        <button type="submit" name="addtocart"  data-placement="left" title="More Info" class="btn btn-success">More</button>
                                      </form>
                                 </div>
                             </div>
