@@ -29,6 +29,7 @@ class Addproductscontroller extends Controller
             'image3' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required|numeric|min:5',
         ]);
+       
        $products = new Product();
        $products['name'] = $input['name'];
        $products['description'] = $input['description'];
@@ -38,6 +39,8 @@ class Addproductscontroller extends Controller
        $products['price'] = $input['price'];
        $products['color'] =$input['color'];
        $products['user_id'] = '1';
+       $products['rating'] = '0.00';
+
        $products['category_id'] = $input['category']; 
        $products -> save();
        return back()

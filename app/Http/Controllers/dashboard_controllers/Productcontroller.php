@@ -46,60 +46,7 @@ class Productcontroller extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request -> all();
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required',
-            'image1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image3' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'price' => 'required|numeric|min:5',
-        ]);
-        $products=new Product();
-        $products['name'] = request('name');
-        $products['description'] = request('description');
-      
-        if($request->hasfile('image1')){
-            $file=$request->file('image1');
-            $extention=$file->getClientOriginalExtension();
-            $sha1 = sha1($file->getClientOriginalName());
-            $filename=time().'_'.$sha1.'.'.$extention;
-            $file->move('img/product-img/',$filename);
-            $products->image1=$filename;
-           }else{
-            return $request;
-            $products->image1='';
-        }
-           if($request->hasfile('image2')){
-               $file1=$request->file('image2');
-               $extention=$file1->getClientOriginalExtension();
-               $sha1 = sha1($file1->getClientOriginalName());
-               $filename1=time().'_'.$sha1.'.'.$extention;
-               $file1->move('img/product-img/',$filename1);
-               $products->image2=$filename1;
-              }else{
-                return $request;
-                $products->image2='';
-            }
-              if($request->hasfile('image3')){
-               $file2=$request->file('image3');
-               $extention=$file2->getClientOriginalExtension();
-               $sha1 = sha1($file2->getClientOriginalName());
-               $filename2=time().'_'.$sha1.'.'.$extention;
-               $file2->move('img/product-img/',$filename2);
-               $products->image3=$filename2;
-              }else{
-                return $request;
-                $products->image3='';
-            }
-           $products['price'] = request('price');
-           $products['color'] =request('color'); 
-           $products['user_id'] =request('user_id'); 
-           $products['category_id'] =request('category_id'); 
-            $products -> save();
-    
-       return back()
-       ->with('message',' Successfully added');
+        
     }
 
     /**
@@ -133,55 +80,53 @@ class Productcontroller extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product,$id)
     {
         
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'description' => 'required',
             'price' => 'required|numeric|min:5|max:10000',
-            // 'image1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
 
+        $oldPro = Product::find($id);
         
-        $products=new Product();
+        $products=Product::find($id);
         $products['name'] = request('name');
         $products['description'] = request('description');
-            $file=$request->file('image1');
+           
       
             if( request('image1')){
-                $file=$request->file('image1');
-                $extention=$file->getClientOriginalExtension();
-                $sha1 = sha1($file->getClientOriginalName());
-                $filename=time().'_'.$sha1.'.'.$extention;
-                $file->move('img/product-img/',$filename);
-                $products->image1=$filename;
+                $products['image1'] = $this::image($request['image1']);
+               }else{
+                   $products['image1'] = $oldPro['image1'];
                }
-            //    if( request('image2')){
-            //        $file1=$request->file('image2');
-            //        $extention=$file1->getClientOriginalExtension();
-            //        $sha1 = sha1($file1->getClientOriginalName());
-            //        $filename1=time().'_'.$sha1.'.'.$extention;
-            //        $file1->move('img/product-img/',$filename1);
-            //        $products->image2=$filename1;
-            //       }
-            //       if(request('image3')){
-            //        $file2=$request->file('image3');
-            //        $extention=$file2->getClientOriginalExtension();
-            //        $sha1 = sha1($file2->getClientOriginalName());
-            //        $filename2=time().'_'.$sha1.'.'.$extention;
-            //        $file2->move('img/product-img/',$filename2);
-            //        $products->image3=$filename2;}
-               
+
+               if( request('image2')){
+                $products['image2'] = $this::image($request['image2']);
+               }else{
+                   $products['image2'] = $oldPro['image2'];
+               }
+
+               if( request('image3')){
+                $products['image3'] = $this::image($request['image3']);
+               }else{
+                   $products['image3'] = $oldPro['image3'];
+               }
+            
            $products['price'] = request('price');
+           $products['rating'] = $oldPro['rating'];
            $products['color'] =request('color'); 
-           $products['user_id'] =request('user_id'); 
-           $products['category_id'] =request('category_id'); 
+           $products['user_id'] =request('user'); 
+           $products['category_id'] =request('category'); 
             $products -> save();
     
        return redirect('dashboard/Products')
-       ->with('message',' Successfully added');
+       ->with('message',' Successfully Edit ');
     }
 
     /**

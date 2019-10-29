@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Cart' => $baseDir . '/app/Cart.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Comment' => $baseDir . '/app/Comment.php',
@@ -27,6 +26,7 @@ return array(
     'App\\Http\\Controllers\\dashboard_controllers\\commentController' => $baseDir . '/app/Http/Controllers/dashboard_controllers/commentController.php',
     'App\\Http\\Controllers\\dashboard_controllers\\dashboardrouts' => $baseDir . '/app/Http/Controllers/dashboard_controllers/dashboardrouts.php',
     'App\\Http\\Controllers\\dashboard_controllers\\orderController' => $baseDir . '/app/Http/Controllers/dashboard_controllers/orderController.php',
+    'App\\Http\\Controllers\\favouriteController' => $baseDir . '/app/Http/Controllers/favouriteController.php',
     'App\\Http\\Controllers\\pagecontroller' => $baseDir . '/app/Http/Controllers/pagecontroller.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
@@ -44,7 +44,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-    'App\\User' => $baseDir . '/app/User.php',
+    'App\\User' => $baseDir . '/app/Admin.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
     'BeyondCode\\DumpServer\\DumpServerServiceProvider' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
     'BeyondCode\\DumpServer\\Dumper' => $vendorDir . '/beyondcode/laravel-dump-server/src/Dumper.php',

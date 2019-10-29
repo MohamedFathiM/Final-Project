@@ -43,7 +43,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form action="{{route('AddProducts')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('AddProducts')}}" method="POST" enctype="multipart/form-data">
               @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name of Product</label>
@@ -71,25 +71,15 @@
                     <small id="price" class="form-text text-muted">from 5 to 100</small>
                 </div>
                 <div class="form-group">
-                    <label for="price">user_id </label><br>
-                    <input type="text"  name="user_id">
-                    {{-- <small id="user_id" class="form-text text-muted">from 5 to 100</small> --}}
-                </div>
-                <div class="form-group">
-                    <label for="price">category_id </label><br>
-                    <input type="text"  name="category_id">
-                    {{-- <small id="user_id" class="form-text text-muted">from 5 to 100</small> --}}
-                </div>
-                <div class="form-group">
                     <label for="color">Color </label>
-                    <input type="color"  name="color" >
+                    <input type="color"  name="color" value="#ffffff">
                 </div>
                 <div class="form-group">
                     <label for="category">select Category</label>
-                    <select class="form-control" id="category" name="category">
+                    <select class="form-control" id="category" name="category" >
                       @foreach (App\Category::get() as $cat)
                         @if($cat -> status == 1){
-                         <option>{{$cat -> name}}</option>
+                         <option value="{{$cat->id}}">{{$cat -> name}}</option>
                         }
                         @endif
                       @endforeach
@@ -98,6 +88,7 @@
                 <input type="submit" class="btn btn-primary">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </form>
+
 
         </div>
 
@@ -147,12 +138,14 @@
   <td><img src="{{asset('img/product-img/'.$prods->image3)}}" height=80px width=100px/></td>
   <td>$ {{ceil($prods->price)}}</td>
   <td><div style="background:{{$prods->color}};width:50px;height:50px;"></div></td>
-  <td style="width:200px;height:100px">
-      <a href="{{route('EditeProducts',$prods->id)}}" class="btn btn-primary">Edit</a>
+  <td  class="d-flex" >
+      <a href="{{route('EditeProducts',$prods->id)}}" style="width:70px;" class="btn btn-primary">Edit</a>
+      &nbsp;
+
       <form method="POST" action="{{route('product.destroy' ,$prods->id)}}">
           {{ @csrf_field() }}
           {{ method_field('DELETE') }}
-            <input type="submit" class="btn btn-danger" value="Delete "></form>
+            <input type="submit" class="btn btn-danger" style="width:70px;" value="Delete "></form>
   </td>
 
 </tr>

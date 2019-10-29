@@ -43,11 +43,16 @@
             <input id="cc-description"  type="text" class="form-control cc-name valid description"name="description" value="{{$category->description}}" >
         </div>
          <div class="form-group">
-            <label for="cc-number" class="control-label mb-1">status</label>
-            <input id="cc-number"  type="text" class="form-control "name="status" value="{{$category->status}}" >
+            <div class="form-group">
+                    <label for="status">select Status</label>
+                    <select class="form-control" id="status" name="status" >
+                         <option value="1" @if($category->status==1)selected @endif>ON</option>
+                         <option value="0" @if($category->status==0)selected @endif>OFF</option>
+                    </select>
+    </div> 
         </div>
     <div class="form-group">
-       <label for="cc-image" class="control-label mb-1">Image</label>
+        <img src="/img/category-img/{{$category->image}}" width=200px height=200px alt="Category Image">    
        <input id="cc-name"  type="file" class="form-control " name="image" value="{{$category->image}}">
    </div>
         <input type="submit" class="btn btn-primary" value="Update"> 

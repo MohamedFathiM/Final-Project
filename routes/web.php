@@ -14,7 +14,11 @@ Auth::routes();
 Route::get('/','pagecontroller@index')->name('home');
 
 
-Route::get('/cart','pagecontroller@cart')->name('cart');
+Route::get('/cart','cartController@index')->name('cart');
+Route::put('/cart/{id}','cartController@update')->name('cartupdate');
+Route::post('/cart','cartController@store')->name('cartstore');
+Route::get('/cart/{id}/delete','cartController@destroy')->name('cartdestroy');
+
 Route::get('/checkout','pagecontroller@checkout')->name('checkout');
 Route::get('/product/{id}','pagecontroller@product')->name('product');
 Route::post('/product','pagecontroller@RateFun')->name('ratingproduct');

@@ -21,10 +21,10 @@
     </div>
    
    @endif
-   @if(Session::get('sucess'))
+   @if(Session::get('message'))
    <div class="alert alert-success">
    <strong>
-   {{Session::get('sucess')}}
+   {{Session::get('message')}}
    </strong>
    </div>
    @endif
@@ -51,7 +51,7 @@
         <input id="cc-name"  type="text" class="form-control " name="role" value="{{$User->role}}">
     </div>
     <div class="form-group">
-       <label for="cc-image" class="control-label mb-1">Image</label>
+        <img src="/img/users-img/{{$User->image}}" alt="UserImage" width=200px height=200px />
        <input id="cc-name"  type="file" class="form-control " name="image" value="{{$User->image}}">
    </div>
         <input type="submit" class="btn btn-primary" value="Update"> 

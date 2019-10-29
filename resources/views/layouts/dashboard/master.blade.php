@@ -48,6 +48,8 @@ background-color: #BEF2F5
 .pagination li:hover{
 cursor: pointer;
 }
+
+@yield('style')
 </style>
 </head>
 <div class="wrapper">

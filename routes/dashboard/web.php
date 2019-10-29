@@ -27,7 +27,7 @@ Route::prefix('dashboard')->group(function(){
     Route::resource('/orders' ,'orderController');
    
     Route::get('/Products' , 'Productcontroller@index')->name('Products');
-    Route::post('/AddProducts' , 'Productcontroller@store')->name('AddProducts');
+    Route::post('/AddProducts' , 'addproductscontroller@store')->name('AddProducts');
     Route::get('/EditeProducts/{id}' , 'Productcontroller@edit')->name('EditeProducts');
     Route::put('/UpdateProducts/{id}' , 'Productcontroller@update')->name('UpdateProducts');
     Route::delete('/Products/{id}', 'Productcontroller@destroy')->name('product.destroy');

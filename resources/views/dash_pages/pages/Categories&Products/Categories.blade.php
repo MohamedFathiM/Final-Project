@@ -113,13 +113,14 @@
       <strong>ON</strong>
     @endif
     </td>
-  <td ><img src="{{$item->image}}" style="width:150px;height:100px;" alt=""></td>
-  <td style="width:150px;"> 
-     <a href="{{route('EditeCategory' , $item->id)}}" class="btn btn-primary">Edit</a>
+  <td ><img src="/img/category-img/{{$item->image}}" style="width:150px;height:100px;" alt=""></td>
+  <td class="d-flex"> 
+     <a style="width:70px;" href="{{route('EditeCategory' , $item->id)}}" class="btn btn-primary">Edit</a>
+     &nbsp;
      <form method="POST" action="{{route('category.destroy' ,$item->id)}}">
         {{ @csrf_field() }}
         {{ method_field('DELETE') }}
-          <input type="submit" class="btn btn-danger" value="Delete "></form>
+          <input style="width:70px;" type="submit" class="btn btn-danger" value="Delete "></form>
 </tr>
 @endforeach
 

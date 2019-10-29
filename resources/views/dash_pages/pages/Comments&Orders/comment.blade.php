@@ -23,7 +23,6 @@
                 <thead>
                     <tr>
                     <th scope="col">id</th>
-                    <th scope="col">title</th>
                     <th scope="col">description</th>
                     <th scope="col">status</th>
                     <th scope="col">user</th>
@@ -35,9 +34,19 @@
                     @foreach ($comments as $comment)
                     <tr>
                     <th scope="row">{{$comment->id}}</th>
-                    <td>{{$comment->title}}</td>
                     <td style="width:250px;">{{$comment->description}}</td>
-                    <td>{{$comment->status}}</td>
+                    <td>
+                    <form action="{{route('comments.update',$comment->id)}}" method="post">
+                            @csrf
+                            @method('PUT')
+                        <select name="status" class="updateSelect" >
+                            <option @if($comment->status ==1)selected @endif>1</option>
+                            <option @if($comment->status ==0)selected @endif>0</option>
+                        </select>
+                        <input type="submit"  class="btn btn-info d-none update" style="font-size:15px;">
+                    </form>
+                    
+                    </td>
                     <td>{{App\User::where('id',$comment->user_id)->pluck('name')}}</td>
                     <td>{{App\Product::where('id',$comment->product_id)->pluck('name')}}</td>
                     <td class="d-flex">
@@ -82,6 +91,11 @@
     <!--  Developed By Yasser Mas -->
     @endsection
     @section('script')
+    $('.updateSelect').click(function(){
+        $('.update').removeClass('d-none');
+        $('.update').removeClass('d-block');
+    });
+
     getPagination('#table-id');
     //getPagination('.table-class');
     //getPagination('table');

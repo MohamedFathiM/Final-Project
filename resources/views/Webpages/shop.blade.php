@@ -199,7 +199,12 @@
 
                                     </div>
                                     <div class="cart">
-                                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="/img/core-img/cart.png" alt=""></a>
+                                    <form  action="{{route('cartstore')}}" method="post">
+                                         @csrf
+                                        <input type="hidden" name="productID" value="{{$product->id}}">
+                                        <button type="submit" name="addtocart"  data-placement="left" title="Add to Cart"><img src="/img/core-img/cart.png" alt=""></button>
+                                     </form>
+                                        <!-- <a href="{{route('cartstore')}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="/img/core-img/cart.png" alt=""></a> -->
                                     </div>
                                 </div>
                             </div>

@@ -108,6 +108,7 @@ class Usersctcontroller extends Controller
             'email' => 'required',
             'password' => 'required',
             'role' =>  'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        ]);
         $User=User::find($id);
         $User['name']=request('name');
@@ -121,11 +122,9 @@ class Usersctcontroller extends Controller
             $filename=time().'.'.$extention;
             $file->move('img/users-img/',$filename);
             $User->image=$filename;
-
-    
         }
         $User->save();
-        return redirect('dashboard/users')->with('sucess','data updated');
+        return redirect('dashboard/users')->with('message','data updated');
         
     }
 

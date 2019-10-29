@@ -400,7 +400,6 @@ class ComposerStaticInitb880ba09f163f5c1f32207e92a3b2c05
     );
 
     public static $classMap = array (
-        'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\Cart' => __DIR__ . '/../..' . '/app/Cart.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
@@ -421,6 +420,7 @@ class ComposerStaticInitb880ba09f163f5c1f32207e92a3b2c05
         'App\\Http\\Controllers\\dashboard_controllers\\commentController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard_controllers/commentController.php',
         'App\\Http\\Controllers\\dashboard_controllers\\dashboardrouts' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard_controllers/dashboardrouts.php',
         'App\\Http\\Controllers\\dashboard_controllers\\orderController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard_controllers/orderController.php',
+        'App\\Http\\Controllers\\favouriteController' => __DIR__ . '/../..' . '/app/Http/Controllers/favouriteController.php',
         'App\\Http\\Controllers\\pagecontroller' => __DIR__ . '/../..' . '/app/Http/Controllers/pagecontroller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -438,7 +438,7 @@ class ComposerStaticInitb880ba09f163f5c1f32207e92a3b2c05
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\User' => __DIR__ . '/../..' . '/app/Admin.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',

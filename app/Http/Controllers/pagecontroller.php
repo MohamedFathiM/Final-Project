@@ -24,9 +24,8 @@ class pagecontroller extends Controller
 //     }
 // }
     public function index(){
-        $i=0;
         $cats = DB::table('categories') ->get();
-        return view('Webpages.index',compact('cats' , 'i'));
+        return view('Webpages.index',compact('cats'));
     }
 
 
@@ -101,9 +100,7 @@ public function sort( Request $request,$id){
 
 
 
-    public function cart(){
-        return view('Webpages.cart');
-    }
+   
 
     public function checkout(){
         return view('Webpages.checkout');
@@ -111,7 +108,7 @@ public function sort( Request $request,$id){
 
     public function product($id){
         $comments = Comment::where( 'product_id',$id )->paginate(3);
-        $product = Product::find($id);
+        $product = Product::findOrFail($id);
         return view('Webpages.product-details',compact('id' ,'product' , 'comments'));
     }
 

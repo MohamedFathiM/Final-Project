@@ -42,9 +42,8 @@ class commentController extends Controller
         if(\Auth::check()){
             $product = Product::find($request->id);
             $comments=new Comment();
-            $comments['title']=$request->input('title');
             $comments['description']=$request->input('description');
-            $comments['status']=$request->input('status');
+            $comments['status']=1;
             $comments['product_id']=$request->input('product_id');
             $comments['user_id']=auth()->user()->id;
             $comments->save();
@@ -76,7 +75,7 @@ class commentController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -86,9 +85,12 @@ class commentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $input = $request->all();
+        $comment= Comment::findOrFail($id);
+        $comment->fill($input)->save();
+        return back();
     }
 
     /**
