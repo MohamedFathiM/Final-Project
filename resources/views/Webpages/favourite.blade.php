@@ -51,7 +51,10 @@
 
                                     </div>
                                     <div class="cart">
-                                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="/img/core-img/cart.png" alt=""></a>
+                                    <form  action="{{route('product',$product->id)}}" method="get">
+                                         @csrf
+                                        <button type="submit" name="addtocart"  data-placement="left" title="More Info" class="btn btn-success">More</button>
+                                     </form>
                                     </div>
                                 </div>
                             </div>

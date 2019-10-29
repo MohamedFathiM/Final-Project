@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="custom-control custom-radio">
-                        <input name="color" value="purple" type="radio" @if( @$color == 'olive') checked="true" @endif class="custom-control-input" id="customCheck8">
+                        <input name="color" value="purple" type="radio" @if( @$color == 'purple') checked="true" @endif class="custom-control-input" id="customCheck8">
                         <label class="custom-control-label color8" for="customCheck8" ></label>
                     </div>
                 </div>

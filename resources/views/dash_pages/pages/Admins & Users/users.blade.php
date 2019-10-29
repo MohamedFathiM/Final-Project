@@ -31,15 +31,15 @@
     {{-- start modal to add users --}}
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal" >
-    <b> Add anew User</b>
+    <b> Add a new User</b>
    </button>
    
    <!-- Modal -->
    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
      <div class="modal-dialog" role="document">
-       <div class="modal-content"style="background-color:chocolate!important">
+       <div class="modal-content">
          <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Add Admin</h5>
+           <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>

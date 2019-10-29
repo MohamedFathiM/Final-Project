@@ -5,6 +5,8 @@ namespace App\Http\Controllers\dashboard_controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth;
+
 
 class Categorycontroller extends Controller
 {
@@ -43,11 +45,18 @@ class Categorycontroller extends Controller
             'name' => 'required|max:255',
             'description' => 'required',
             'status' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
        ]);
         $category=new Category();
         $category['name']=request('name');
         $category['description']=request('description');
         $category['status']=request('status');
+        if(\Auth::check()){
+        $category['user_id']=\Auth::id();
+        }else{
+            $category['user_id'] = 1 ;
+        }
         if($request->hasfile('image')){
             $file=$request->file('image');
             $extention=$file->getClientOriginalExtension();

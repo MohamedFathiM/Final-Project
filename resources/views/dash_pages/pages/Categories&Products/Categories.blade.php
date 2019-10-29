@@ -30,15 +30,15 @@
     {{-- start modal to add users --}}
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal" >
-    <b> Add anew User</b>
+    <b> Add a new Category</b>
    </button>
    
    <!-- Modal -->
    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
      <div class="modal-dialog" role="document">
-       <div class="modal-content"style="background-color:chocolate!important">
+       <div class="modal-content">
          <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Add Admin</h5>
+           <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
@@ -50,14 +50,18 @@
                  <label for="cc-name" class="control-label mb-1">Name</label>
                  <input id="cc-name"  type="text" class="form-control name" aria-required="true" aria-invalid="false" name="name">
              </div>
-             <div class="form-group ">
-                 <label for="cc-name" class="control-label mb-1">description</label>
-                 <input id="cc-description"  type="text" class="form-control cc-name valid description"name="description" >
-             </div>
-              <div class="form-group">
-                 <label for="cc-number" class="control-label mb-1">status</label>
-                 <input id="cc-number"  type="text" class="form-control "name="status" >
-             </div>
+             <div class="form-group">
+                  <label for="tectarea">Description</label>
+                  <textarea class="form-control" id="textarea" rows="3" name="description"></textarea>
+                </div>
+             <div class="form-group">
+                    <label for="status">select status</label>
+                    <select class="form-control" id="status" name="status" >   
+                         <option value="0">0</option>
+                         <option value="1">1</option>
+                    </select>
+                </div>         
+
          <div class="form-group">
             <label for="cc-image" class="control-label mb-1">Image</label>
             <input id="cc-name"  type="file" class="form-control " name="image">
