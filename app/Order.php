@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $table = 'order';
+    protected $table = 'orders';
     protected $fillable = [
-    'Fname','Lname','address','city','zipCode','phoneNumber','cart_id','subTotal'
+    'first_name','second_name','address','city','zipCode','phoneNumber','cart_id','subTotal','commend'
     ];
 
     public function cart(){

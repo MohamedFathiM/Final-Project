@@ -40,23 +40,27 @@ class orderController extends Controller
     {
         $input = $request -> all();
         $validatedData = $request->validate([
-            'Fname' => 'required',
-            'Lname' => 'required',
+            'fname' => 'required',
+            'lname' => 'required',
             'address' => 'required',
             'city' => 'required|max:2048',
             'zipCode' => 'required|max:2048',
             'phoneNumber' => 'required|max:2048',
+            'comment'=> 'required|max:2048' ,
+            'email'=> 'required|max:2048' ,
+            'totalprice'=> 'required|max:2048' ,
         ]);
        
        $orders = new Order();
-       $orders['Fname'] = $input['fname'];
-       $orders['Lname'] = $input['lname'];
+       $orders['first_name'] = $input['fname'];
+       $orders['second_name'] = $input['lname'];
        $orders['address'] = $input['address'];
-       $orders['city'] = $input['city'];
+       $orders['country'] = $input['city'];
        $orders['zipCode'] = $input['zipCode'];
        $orders['phoneNumber'] =$input['phoneNumber'];
-       $orders['card_id'] = '1';
-       $orders['subTotal'] =$input['subTotal'];;
+       $orders['comment'] =$input['comment'];
+       $orders['email'] =$input['email'];
+       $orders['totalprice'] =$input['totalprice'];
 
        $orders -> save();
        return back()

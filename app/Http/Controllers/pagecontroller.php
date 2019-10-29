@@ -135,6 +135,7 @@ public function sort( Request $request,$id){
 
         //Function for Rating Start System
     public function RateFun(Request $request){
+        if(isset($request['rateBtn'])){
         if(\Auth::check()){
         $product = Product::find($request->id);
         $product ->rating = $request ->rate;
@@ -152,6 +153,9 @@ public function sort( Request $request,$id){
             return redirect("login");
 
         }
+    }else{
+        return redirect()->route("product",$request->id);
+    }
     }
 
     public function thisweek(){

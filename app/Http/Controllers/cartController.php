@@ -46,12 +46,13 @@ class cartController extends Controller
     
         if(\Auth::check()){
         $input = $request->all();
-        $oldcart = Cart::where('product_id',($input['productID']))->first();
+        $oldcart = Cart::where('product_id',($input['productID']))->where('user_id',\Auth::id())->first();
         if(!isset($input['quantity'])){
             $input['quantity'] = 1 ;
         }
 
         if($input['productID'] == $oldcart['product_id']){
+            $oldcart['user_id'] = \Auth::id();
             $oldcart['qauntity'] =  $oldcart['qauntity'] + $input['quantity'];
             $oldcart ->save();            
         }else{

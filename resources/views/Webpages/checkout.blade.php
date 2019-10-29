@@ -80,7 +80,7 @@
                                         <input type="text" class="form-control mb-3" id="street_address" placeholder="Address" value="" name="address">
                                     </div>
                                     <div class="col-12 mb-3">
-                                    <input type="hidden" class="form-control mb-3" placeholder="subTotal" value="{{$all}}" name="subTotal" >
+                                    <input type="hidden" class="form-control mb-3" placeholder="totalprice" value="{{$all}}" name="totalprice" >
                                         </div>
                                     <div class="col-md-6 mb-3">
                                         <input type="text" class="form-control" id="zipCode" placeholder="Zip Code" value="" name="zipCode">
@@ -89,7 +89,7 @@
                                         <input type="number" class="form-control" id="phone_number" min="0" placeholder="Phone No" value="" name="phoneNumber">
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <textarea name="comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="Leave a comment about your order" name="comment"></textarea>
+                                        <input name="comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="Leave a comment about your order" name="comment">
                                     </div>
 
                                     <div class="col-12">
