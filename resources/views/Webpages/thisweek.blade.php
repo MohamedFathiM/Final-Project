@@ -28,7 +28,7 @@
                             <!-- Product Meta Data -->
                             <div class="product-meta-data">
                                 <div class="line"></div>
-                    <a href="{{url('shop/1')}}"> <h6>{{$product->Category->name }}</h6></a>
+                    <a href="{{url('shop/1')}}"> <h6></h6></a>
                                 <p class="product-price">${{$product -> price}}</p>
                             <a href="..\product\{{$product->id}}">
                                     <h6>{{$product -> name}}</h6>

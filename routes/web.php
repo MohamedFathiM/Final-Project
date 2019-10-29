@@ -20,6 +20,7 @@ Route::post('/cart','cartController@store')->name('cartstore');
 Route::get('/cart/{id}/delete','cartController@destroy')->name('cartdestroy');
 
 Route::get('/checkout','pagecontroller@checkout')->name('checkout');
+Route::post('/addcheckout','dashboard_controllers\orderController@store')->name('addcheckout');
 Route::get('/product/{id}','pagecontroller@product')->name('product');
 Route::post('/product','pagecontroller@RateFun')->name('ratingproduct');
 

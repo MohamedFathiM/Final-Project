@@ -42,7 +42,7 @@
                                 @endphp
                                 @foreach($products as $product)
                                     <tr>
-                                        <td class="cart_product_img"><a title="Click to Delete" href="{{route('cartdestroy',$product->product_id)}}"><span id="close">+</span></a>
+                                        <td class=""><a title="Click to Delete" href="{{route('cartdestroy',$product->product_id)}}"><span id="close">+</span></a>
                                             <a href="#"><img src="{{$product->image}}" alt="Product" width=120px height=150px></a>
                                         </td>
                                         
@@ -70,6 +70,7 @@
                                                     </form>
                                                     <!-- <span class="qty-plus " onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span> -->
                                                 </div>
+                                                
                                             </div>
                                             
                                         </td>
@@ -91,7 +92,7 @@
                                 <li><span>total:</span> <span>$ {{$all + $delv}}</span></li>
                             </ul>
                             <div class="cart-btn mt-100">
-                                <a href="cart.html" class="btn amado-btn w-100">Checkout</a>
+                                <a href="{{route('checkout')}}" class="btn amado-btn w-100">Checkout</a>
                             </div>
                         </div>
                     </div>
