@@ -85,6 +85,35 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
+                        @guest
+                        <li class="nav-item {{Request::is('login') ? 'active' : '' }}" >
+                            <a class="nav-link" href="{{ url('/login') }}" style="color:green;">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item {{Request::is('register') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('/register') }}" style="color:green;">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown " >
+                            <a style="color:green;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Hello {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                
+                            <div class="dropdown-menu dropdown-menu-left " id="dropMenu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item " id="logout" href="{{ url('/logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                
+                                <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                    <br>
                     <li class="{{Request::is('/') ? 'active' : '' }}"><a href="{{route('home')}}">Home</a></li>
                     <li class="{{Request::is('shop/1') ? 'active' : '' }}"><a href="{{url('shop/1')}}">Shop</a></li>
                     <li class="{{Request::is('product/1') ? 'active' : '' }}"><a href="{{url('product/1')}}">Product</a></li>
@@ -93,34 +122,7 @@
 
                      <!-- Right Side Of Navbar -->
     <!-- Authentication Links -->
-    @guest
-        <li class="nav-item {{Request::is('login') ? 'active' : '' }}" >
-            <a class="nav-link" href="{{ url('/login') }}" style="color:green;">{{ __('Login') }}</a>
-        </li>
-        @if (Route::has('register'))
-            <li class="nav-item {{Request::is('register') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/register') }}" style="color:green;">{{ __('Register') }}</a>
-            </li>
-        @endif
-    @else
-        <li class="nav-item dropdown " >
-            <a style="color:green;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                Hello {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
-
-            <div class="dropdown-menu dropdown-menu-left " id="dropMenu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item " id="logout" href="{{ url('/logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
-        </li>
-    @endguest
+    
 
 
 
@@ -132,7 +134,7 @@
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-                <a href="{{route('cart')}}" class="cart-nav"><img src="/img/core-img/cart.png" alt=""> Cart <span>(@if(\Auth::check()) {{App\Cart::where('user_id',auth()->user()->id)->count()}} @endif)</span></a>
+                <a href="{{route('cart')}}" class="cart-nav"><img src="/img/core-img/cart.png" alt=""> Cart <span>( @if(\Auth::check()){{App\Cart::where('user_id',auth()->user()->id)->count()}} @endif )</span></a>
                 <a href="{{url('favourite')}}" class="fav-nav"><img src="/img/core-img/favorites.png" alt=""> Favourite</a>
                 <a href="#" class="search-nav"><img src="/img/core-img/search.png" alt=""> Search</a>
             </div>

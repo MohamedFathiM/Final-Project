@@ -12,7 +12,7 @@ class CreateOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('first_name');
             $table->string('second_name');
@@ -22,6 +22,7 @@ class CreateOrderTable extends Migration
             $table->string('zipCode');
             $table->integer('phoneNumber');
             $table->integer('comment');
+            $table->integer('totalprice');
             $table->unsignedBigInteger('cart_id')->index();    
             $table->timestamps();
         });

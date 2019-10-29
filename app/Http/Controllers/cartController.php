@@ -66,7 +66,7 @@ class cartController extends Controller
             $cart['user_id'] = \Auth::id();
             $cart -> save();
         }
-        return  redirect('cart');
+        return  back();
     }else{
     return redirect('login');
 }

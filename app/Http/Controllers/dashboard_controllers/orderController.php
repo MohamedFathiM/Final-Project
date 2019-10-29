@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\dashboard_controllers;
 use App\Order;
+use App\Product;
+use App\Cart;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -36,8 +38,36 @@ class orderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request -> all();
+        $validatedData = $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'address' => 'required',
+            'city' => 'required|max:2048',
+            'zipCode' => 'required|max:2048',
+            'phoneNumber' => 'required|max:2048',
+            'comment'=> 'required|max:2048' ,
+            'email'=> 'required|max:2048' ,
+            'totalprice'=> 'required|max:2048' ,
+        ]);
+       
+       $orders = new Order();
+       $orders['first_name'] = $input['fname'];
+       $orders['second_name'] = $input['lname'];
+       $orders['address'] = $input['address'];
+       $orders['country'] = $input['city'];
+       $orders['zipCode'] = $input['zipCode'];
+       $orders['phoneNumber'] =$input['phoneNumber'];
+       $orders['comment'] =$input['comment'];
+       $orders['email'] =$input['email'];
+       $orders['totalprice'] =$input['totalprice'];
+
+       $orders -> save();
+       return back()
+       ->with('message',' Successfully added');
+    
     }
+   
 
     /**
      * Display the specified resource.
@@ -83,4 +113,5 @@ class orderController extends Controller
     {
         //
     }
+
 }
