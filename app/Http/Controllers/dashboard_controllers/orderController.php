@@ -112,7 +112,9 @@ class orderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $orders=Order::find($id);
+        $orders->delete();
+        return back();
+    }
     }
 
-}

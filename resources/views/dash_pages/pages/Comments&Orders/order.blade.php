@@ -38,7 +38,7 @@
                         <tr scope="row">
                           <td>{{$order->id}}</td>
                           <td>{{$order->first_name}}</td>
-                          <td>{{$order->last_name}}</td>
+                          <td>{{$order->second_name}}</td>
                           <td>{{$order->email}}</td>
                           <td>{{$order->country}}</td>
                           <td>{{$order->address}}</td>
@@ -47,11 +47,10 @@
                           <td>{{$order->comment}}</td>
                           <td>{{$order->totalprice}}</td>
                           <td class="d-flex">  
-                          <a style="width:70px;" href="#" class="btn btn-primary">Edit</a>
-                          &nbsp;
-                          <form method="POST" action="#">
-                            {{-- {{ @csrf_field() }}
-                            {{ method_field('DELETE') }} --}}
+                          
+                            <form method="POST" action="{{route('orders.destroy' ,[$order->id])}}">
+                            {{ @csrf_field() }}
+                            {{ method_field('DELETE') }}
                               <button style="width:70px;" type="submit" class="btn btn-danger">Delete</button> </form>
                             </td>
                         </tr>
