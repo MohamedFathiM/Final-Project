@@ -402,6 +402,7 @@ class ComposerStaticInitb880ba09f163f5c1f32207e92a3b2c05
     public static $classMap = array (
         'App\\Cart' => __DIR__ . '/../..' . '/app/Cart.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
+        'App\\Checkout' => __DIR__ . '/../..' . '/app/Checkout.php',
         'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -412,6 +413,7 @@ class ComposerStaticInitb880ba09f163f5c1f32207e92a3b2c05
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\cartController' => __DIR__ . '/../..' . '/app/Http/Controllers/cartController.php',
         'App\\Http\\Controllers\\dashboard_controllers\\Addproductscontroller' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard_controllers/Addproductscontroller.php',
         'App\\Http\\Controllers\\dashboard_controllers\\Adminsctcontroller' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard_controllers/Adminsctcontroller.php',
         'App\\Http\\Controllers\\dashboard_controllers\\Categorycontroller' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard_controllers/Categorycontroller.php',

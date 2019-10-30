@@ -56,7 +56,7 @@
                                     $all = 0 ;
                                     $delv = 0;
                                     @endphp
-                                    @foreach (App\Cart::where('user_id',auth()->user()->id)->get(); as $item)
+                                    @foreach (App\Cart::where('user_id',Auth::id()) as $item)
                                         
                                      @php
                                         $FinalPrice =  $item->price * $item->qauntity;
@@ -86,7 +86,7 @@
                                         <input type="text" class="form-control" id="zipCode" placeholder="Zip Code" value="" name="zipCode">
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <input type="number" class="form-control" id="phone_number" min="0" placeholder="Phone No" value="" name="phoneNumber">
+                                        <input type="text" class="form-control" id="phone_number" min="0" placeholder="Phone No" value="" name="phoneNumber">
                                     </div>
                                     <div class="col-12 mb-3">
                                         <input name="comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="Leave a comment about your order" name="comment">
@@ -127,7 +127,7 @@
                             </div>
 
                             <div class="cart-btn mt-100">
-                                    <input type="submit" class="form-control"   value="checkout" >
+                                    <input type="submit" class="form-control btn-info"   value="checkout" >
                             </div>
                         </div>
                     </div>

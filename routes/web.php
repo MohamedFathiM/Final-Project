@@ -15,6 +15,7 @@ Route::get('/','pagecontroller@index')->name('home');
 
 
 Route::get('/cart','cartController@index')->name('cart');
+Route::get('/Checkout','cartController@indexx')->name('Checkout');
 Route::put('/cart/{id}','cartController@update')->name('cartupdate');
 Route::post('/cart','cartController@store')->name('cartstore');
 Route::get('/cart/{id}/delete','cartController@destroy')->name('cartdestroy');

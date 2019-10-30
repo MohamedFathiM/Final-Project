@@ -23,7 +23,7 @@ class CreateOrderTable extends Migration
             $table->integer('phoneNumber');
             $table->integer('comment');
             $table->integer('totalprice');
-            $table->unsignedBigInteger('cart_id')->index();    
+            $table->integer('User_id');    
             $table->timestamps();
         });
     }

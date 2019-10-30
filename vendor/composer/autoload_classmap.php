@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Cart' => $baseDir . '/app/Cart.php',
     'App\\Category' => $baseDir . '/app/Category.php',
+    'App\\Checkout' => $baseDir . '/app/Checkout.php',
     'App\\Comment' => $baseDir . '/app/Comment.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -18,6 +19,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\cartController' => $baseDir . '/app/Http/Controllers/cartController.php',
     'App\\Http\\Controllers\\dashboard_controllers\\Addproductscontroller' => $baseDir . '/app/Http/Controllers/dashboard_controllers/Addproductscontroller.php',
     'App\\Http\\Controllers\\dashboard_controllers\\Adminsctcontroller' => $baseDir . '/app/Http/Controllers/dashboard_controllers/Adminsctcontroller.php',
     'App\\Http\\Controllers\\dashboard_controllers\\Categorycontroller' => $baseDir . '/app/Http/Controllers/dashboard_controllers/Categorycontroller.php',

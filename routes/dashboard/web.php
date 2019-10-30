@@ -38,8 +38,7 @@ Route::prefix('dashboard')->group(function(){
     
 
    
-    Route::get('/page404' , 'dashboardrouts@page404')->name('404');
-    Route::get('/page500' , 'dashboardrouts@page500')->name('500');
+
     Route::get('/contacts' , 'dashboardrouts@contacts')->name('contact');
     
     Route::get('/login' , 'dashboardrouts@login')->name('login');

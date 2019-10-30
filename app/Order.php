@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $table = 'orders';
     protected $fillable = [
-    'first_name','second_name','address','city','zipCode','phoneNumber','cart_id','subTotal','commend'
+    'first_name','second_name','address','city','zipCode','phoneNumber','cart_id','subTotal','commend','User_id'
     ];
 
     public function cart(){

@@ -180,7 +180,7 @@ cursor: pointer;
                     Comments
                   </p>
                 </a>
-              </li>
+              </li> 
 
 
 

@@ -30,6 +30,7 @@
                           <th>Zipcode</th>
                           <th>Phonnumber</th>
                           <th>Commend</th>
+                          <th>Product Name</th>
                           <th>TotalPrice</th>
                         </tr>
                         
@@ -45,7 +46,20 @@
                           <td>{{$order->zipCode}}</td>
                           <td>{{$order->phoneNumber}}</td>
                           <td>{{$order->comment}}</td>
+                          <td>
+                          <ul>
+                          @foreach (App\User::all() as $user)
+                          @foreach (DB::table('checkouts')->where('User_id','=',$user->id)->get() as $item)
+                              <li><a href="{{route('product',$item->product_id)}}">
+                              {{$item->name}}</a></li>
+                          @endforeach  
+                          @endforeach  
+                          
+                          </ul>
+
+                          </td>
                           <td>{{$order->totalprice}}</td>
+
                           <td class="d-flex">  
                           
                             <form method="POST" action="{{route('orders.destroy' ,[$order->id])}}">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cart;
+use App\Checkout;
 use App\Product;
 use App\Http\Controllers\Auth;
 
@@ -66,6 +67,30 @@ class cartController extends Controller
             $cart['user_id'] = \Auth::id();
             $cart -> save();
         }
+
+        // checkouts
+
+        $input = $request->all();
+        $oldcartt = Checkout::where('product_id',($input['productID']))->where('user_id',\Auth::id())->first();
+        if(!isset($input['quantity'])){
+            $input['quantity'] = 1 ;
+        }
+
+        if($input['productID'] == $oldcartt['product_id']){
+            $oldcartt['user_id'] = \Auth::id();
+            $oldcartt['qauntity'] =  $oldcartt['qauntity'] + $input['quantity'];
+            $oldcartt ->save();            
+        }else{
+            $cartt = new Checkout();
+            $product = Product::find($input['productID']);
+            $cartt['qauntity'] = $input['quantity'];
+            $cartt['image'] = $product->image1;
+            $cartt['name'] = $product->name;
+            $cartt['price'] = $product->price;
+            $cartt['product_id'] = $product->id;
+            $cartt['user_id'] = \Auth::id();
+            $cartt -> save();
+        }
         return  back();
     }else{
     return redirect('login');
@@ -107,7 +132,12 @@ class cartController extends Controller
      $cart = Cart::findOrFail($id);
      $cart['qauntity'] = $input['quantity'];
      $cart ->save();
-     return back();   
+       
+
+     $cartt = Checkout::findOrFail($id);
+     $cartt['qauntity'] = $input['quantity'];
+     $cart ->save();
+     return back();  
     }
 
     /**
@@ -119,6 +149,7 @@ class cartController extends Controller
     public function destroy($id)
     {
         Cart::where('product_id',$id)->delete();
+        Checkout::where('product_id',$id)->delete();
         return back();
    
     }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\dashboard_controllers;
 use App\Order;
+use DB;
 use App\Product;
+use App\User;
 use App\Cart;
+use App\Checkout;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -17,8 +20,10 @@ class orderController extends Controller
      */
     public function index()
     {
+        
+      $checkout = DB::table('checkouts')->get();
         $orders=Order::All();
-        return view('dash_pages.pages.Comments&Orders.order' , compact('orders'));
+        return view('dash_pages.pages.Comments&Orders.order' , compact('orders' ,'checkout'));
     }
 
     /**
@@ -39,6 +44,9 @@ class orderController extends Controller
      */
     public function store(Request $request)
     {
+        if(\Auth::check()){
+            $products = Cart::where('user_id',auth()->user()->id)->get()->count();
+            if($products>0 ){
         $input = $request -> all();
         $validatedData = $request->validate([
             'fname' => 'required',
@@ -51,8 +59,8 @@ class orderController extends Controller
             'email'=> 'required|max:2048' ,
             'totalprice'=> 'required|max:2048' ,
         ]);
-       
        $orders = new Order();
+       $orders['User_id'] = \Auth::id();
        $orders['first_name'] = $input['fname'];
        $orders['second_name'] = $input['lname'];
        $orders['address'] = $input['address'];
@@ -64,10 +72,18 @@ class orderController extends Controller
        $orders['totalprice'] =$input['totalprice'];
 
        $orders -> save();
+
+       Cart::where('User_id' , \Auth::id())->delete();
+       
+
        return back()
        ->with('message',' Successfully added');
-    
     }
+    else{
+        return back()
+        ->with("'message',' Failed added check your Cart'");
+    }
+}}
    
 
     /**
