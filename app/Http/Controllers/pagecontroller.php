@@ -23,76 +23,7 @@ class pagecontroller extends Controller
 
 
 
-<<<<<<< HEAD
-
-public function sort( Request $request,$id){
-    $input = $request -> all();
-
-        /*Display products by view  */
-        /*switch on request which has values 12 , 24 , 48 and 96 */
-    switch(@$input['select']){
-        case 12 :
-            $value = 12 ;
-            break;
-        case 24 :
-            $value = 24 ;
-            break;
-        case 48 :
-            $value = 48;
-            break;
-        case 96 :
-            $value = 96 ;
-            break;
-        default :
-            $value = 12;
-    }
-    if(isset($input['min'])){
-    $minPrice = @$input['min'] ; 
-    $maxPrice = @$input['max'] ;
-    }else{
-        $minPrice = Product::all()->min('price') ; 
-        $maxPrice =Product::all()->max('price') ; ;
-    }
-
-    if(isset($input['color'])){
-        $color= $input['color'];
-     }else{
-         $color = '';
-     }
    
-               /*Display products by view  and sort by */
-        /*switch on request which has values date ,newest and popular */
-            
-        switch (@$input['sortSelect']){
-                case 'Date' :
-                    $SortedValue = 'Date';
-                    $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color',$color)->orderBy('id','asc')->paginate(@$value);
-                    return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>@$SortedValue,'value'=>@$value,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice,'color'=>$color]);
-                    break;
-                case 'Newest' :
-                    $SortedValue = 'Newest';
-                    $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color',$color)->orderBy('id','desc')->paginate(@$value);
-                    return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>@$SortedValue,'value'=>@$value,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice,'color'=>$color]);
-                    break; 
-                case 'Popular' :
-                    $SortedValue = 'Popular';
-                    $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color',$color)->orderBy('rating','desc')->paginate(@$value);
-                    return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>@$SortedValue,'value'=>@$value,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice,'color'=>$color]);
-                    break; 
-                default:
-                    $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->orderBy('id','asc')->paginate(12);
-                    return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>'Date','value'=>12 ,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice]);
-               
-        }
-    
-
-  
-               
-}
-
-=======
-   
->>>>>>> 14b8f4f9cf1aa02f1dfb10d7b847ab7c4ff88e44
 
 
     //View the checkout page 
