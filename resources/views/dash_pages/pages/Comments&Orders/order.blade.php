@@ -62,8 +62,8 @@
                                   @csrf
                                   @method('PUT')
                               <select name="status" class="updateSelect" >
-                                  <option @if($order->status ==1)selected @endif>1</option>
-                                  <option @if($order->status ==0)selected @endif>0</option>
+                                  <option @if($order->status ==1)selected @endif>done</option>
+                                  <option @if($order->status ==0)selected @endif>Pending</option>
                               </select>
                               <button style="width:50px;font-size: 10px ;" type="submit"  class="btn btn-info">done</button> 
                           </form> </td>

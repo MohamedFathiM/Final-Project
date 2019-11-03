@@ -35,6 +35,9 @@ Route::any('/search','searchController@mysearch')->name('searchproduct');
 //new this week Route
 Route::any('/prodsthisweek','thisWeekController@thisweek')->name('thisweek');
 
+Route::any('/subscribers','SubscribController@index')->name('subscribers');
+Route::any('/subscribe','SubscribController@store')->name('subscribe');
+
 Route::any('/comment','pagecontroller@comment')->name('comment');
 
 Route::get('/favourite','favouriteController@index')->name('favourite');

@@ -157,18 +157,46 @@
                 <!-- Newsletter Text -->
                 <div class="col-12 col-lg-6 col-xl-7">
                     <div class="newsletter-text mb-100">
-                        <h2>Subscribe for a <span>25% Discount</span></h2>
+                        <h2>Subscribe for a <span>Offers && Discount</span></h2>
                         <p>Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet mi vulputate consectetur. Donec auctor interdum purus, ac finibus massa bibendum nec.</p>
                     </div>
                 </div>
                 <!-- Newsletter Form -->
                 <div class="col-12 col-lg-6 col-xl-5">
                     <div class="newsletter-form mb-100">
-                        <form action="" method="post">
+                    <form action="{{route('subscribe')}}" method="post">
+                            @csrf
                             <input type="email" name="email" class="nl-email" placeholder="Your E-mail">
                             <input type="submit" value="Subscribe">
                         </form>
+                        @if (count($errors) > 0)
+
+                        <div class="alert alert-danger">
+                    
+                            <strong>Whoops!</strong> There were some problems with your input.
+                    
+                            <ul>
+                    
+                                @foreach ($errors->all() as $error)
+                    
+                                    <li>{{ $error }}</li>
+                    
+                                @endforeach
+                    
+                            </ul>
+                    
+                        </div>
+                       
+                    @endif
+                    @if(Session::get('message'))
+                    <div class="alert alert-success" style="background-color:goldenrod">
+                    <strong>
+                    {{Session::get('message')}}
+                    </strong>
                     </div>
+                    @endif
+                    </div>
+          
                 </div>
             </div>
         </div>
