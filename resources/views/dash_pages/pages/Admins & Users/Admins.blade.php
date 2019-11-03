@@ -79,8 +79,11 @@
               <td>{{$admin->role}}</td>
               <td>{{$admin->image}}</td>
               <td>
-                <a href="#" class="btn btn-primary">Edite</a>
-                <a href="#" class="btn btn-warning">Delete</a>
+                  <a style="width:70px;" href="{{route('EditeUsers' ,$admin->id)}}" class="btn btn-primary">Edit</a>
+                <form method="POST" action="{{route('users.destroy' ,[$admin->id])}}">
+                  {{ @csrf_field() }}
+                  {{ method_field('DELETE') }}
+                    <button style="width:70px;" type="submit" class="btn btn-danger">Delete</button> </form>
 
               </td>
             </tr>

@@ -48,12 +48,12 @@
                           <td>{{$order->comment}}</td>
                           <td>
                           <ul>
-                          @foreach (App\User::all() as $user)
-                          @foreach (DB::table('checkouts')->where('User_id','=',$user->id)->get() as $item)
+                         
+                          @foreach (DB::table('checkouts')->where('User_id','=',$order->User_id)->get() as $item)
                               <li><a href="{{route('product',$item->product_id)}}">
                               {{$item->name}}</a></li>
                           @endforeach  
-                          @endforeach  
+                         
                           
                           </ul>
 
