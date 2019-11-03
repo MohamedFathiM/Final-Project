@@ -10,7 +10,7 @@
                                     <div class="col-8" >
                                             
                                             <div class="card mb-3">
-        <img src="{{asset('img/product-img/'.$comments ->Product->image1)}}"   class="card-img-top" alt="...">
+        <img src="/img/product-img/{{$comments ->Product->image1}}"   class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-title"><strong>Product name : </strong><a href="{{route('product',$comments->Product->id)}}">{{$comments->Product->name}}</h5></a><br>
         <p class="card-text text-justify"><Strong>Comment : </strong>{{$comments->description}}</p>
