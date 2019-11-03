@@ -164,6 +164,10 @@ cursor: pointer;
             </ul>
           </li>
           
+             
+               
+            
+          
 
 
           {{----- Comments Table -----}}
@@ -188,6 +192,12 @@ cursor: pointer;
                 </a>
               </li>
 
+              <li class="nav-item menu-open"> 
+              <a href="{{route('subscribers')}}"  class="nav-link {{Request::is('dashboard/subscribers')?'active':''}}">
+                
+                <p><strong style="font-size: 20px"> subscribers </strong></p>
+              </a>
+            </li>
 
 
          
