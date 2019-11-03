@@ -119,10 +119,10 @@ class orderController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
-        $order= Order::findOrFail($id);
-        $order->fill($input)->save();
-        return back();
-    }
+        $orders= Order::findOrFail($id);
+       $orders['status']=$input['status'];
+        $orders->fill($input)->save();
+        return back();    }
 
     /**
      * Remove the specified resource from storage.

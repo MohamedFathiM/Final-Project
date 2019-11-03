@@ -45,7 +45,7 @@ class commentController extends Controller
             $comments['description']=$request->input('description');
             $comments['status']=1;
             $comments['product_id']=$request->input('product_id');
-            $comments['user_id']=auth()->user()->id;
+            $comments['user_id']= \Auth::id();
             $comments->save();
             return back();
         }else{

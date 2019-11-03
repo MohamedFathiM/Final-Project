@@ -10,7 +10,7 @@ class Comment extends Model
         'title', 'description', 'status','product_id','user_id',
     ];
 
-    public function user(){
+    public function User(){
         return $this->belongsTo(User::class);
     }
     public function Product(){

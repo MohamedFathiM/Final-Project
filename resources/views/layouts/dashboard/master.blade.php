@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title> Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -92,7 +92,7 @@ cursor: pointer;
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/img/users-img/{{Auth::user()->image}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{asset('img/users-img/'.Auth::user()->image)}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="{{route('EditeUsers' ,Auth::id())}}" title="Edit You Profile" class="d-block">{{Auth::user()->name}}</a>
@@ -171,7 +171,7 @@ cursor: pointer;
               <a href="{{route('comments.index')}}" class="nav-link {{Request::is('dashboard/comments')?'active':''}}" >
                 <i class="fas fa-comment nav-icon"></i>             
                      <p>
-                    Comments
+                    Comments &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:chartreuse">({{App\Comment::where('status',0)->count()}})</span>
                   </p>
                 </a>
               </li> 
@@ -183,7 +183,7 @@ cursor: pointer;
               <a href="{{route('orders.index')}}" class="nav-link {{Request::is('dashboard/orders')?'active':''}}" >
                 <i class="fas fa-shopping-cart nav-icon"></i>
                  <p>
-                    Orders
+                    Orders    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:chartreuse">({{App\Order::where('status',0)->count()}})
                   </p>
                 </a>
               </li>

@@ -18,8 +18,8 @@
                       </select>
                      
                     </div>
-
-                    <table class="table table-striped table-class" id= "table-id">
+                    <div class="table-responsive-sm">
+                    <table class="table table-striped table-class " id= "table-id">
                         <tr scope="row">
                           <th>Id</th>
                           <th>FirstName</th>
@@ -49,9 +49,9 @@
                           <td>{{$order->comment}}</td>
                           <td>
                           <ul>   
-                          @foreach (DB::table('checkouts')->where('User_id','=',$order->id)->get() as $item)
+                          @foreach (DB::table('checkouts')->where('User_id','=',$order->User_id)->get() as $item)
                               <li><a href="{{route('product',$item->product_id)}}">
-                              {{$item->name}}</a></li>
+                              {{$item->name}} <span>.......({{$item->qauntity}})</span></a></li>
                           @endforeach  
                
                           </ul>
@@ -80,6 +80,7 @@
                         
                         @endforeach
                         </table>
+                    </div>
                 </section>
 <div class='pagination-container'>
         <nav style="text-align:center">
