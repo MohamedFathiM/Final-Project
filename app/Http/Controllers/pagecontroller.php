@@ -14,15 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class pagecontroller extends Controller
 {
-
-
-    //
-//     public  function store(Request $request){
-        
-//       $input['select'] = 12;
-        
-//     }
-// }
+    //Select All Categories for index page 
     public function index(){
         $cats = DB::table('categories') ->get();
         return view('Webpages.index',compact('cats'));
@@ -31,6 +23,7 @@ class pagecontroller extends Controller
 
 
 
+<<<<<<< HEAD
 
 public function sort( Request $request,$id){
     $input = $request -> all();
@@ -97,73 +90,52 @@ public function sort( Request $request,$id){
                
 }
 
-
-
-
+=======
    
+>>>>>>> 14b8f4f9cf1aa02f1dfb10d7b847ab7c4ff88e44
 
+
+    //View the checkout page 
     public function checkout(){
         return view('Webpages.checkout');
     }
 
+    //View the productDetails and its comments 
     public function product($id){
-        $comments = Comment::where( 'product_id',$id )->paginate(3);
+        $comments = Comment::where('product_id',$id )->paginate(3);
         $product = Product::findOrFail($id);
         return view('Webpages.product-details',compact('id' ,'product' , 'comments'));
     }
 
   
 
-    //Fuinction For Search Button 
-
-    
-    public function mysearch(Request $request){
-            $q=$request->get('q');
-            $productName = DB::table('products')->where('name','LIKE','%'.$q.'%')->orWhere('description','LIKE','%'.$q.'%')->get();
-        if(count($productName) > 0)
-            {
-                return view('Webpages.search')->with('productName',$productName)->withQuery($q);
-             }
-        else 
-             {
-                return view ('Webpages.search')->withMessage('No Details found. Try to search again !');
-            
-            }
-        
-        }
-
+   
 
         //Function for Rating Start System
     public function RateFun(Request $request){
         if(isset($request['rateBtn'])){
-        if(\Auth::check()){
-        $product = Product::find($request->id);
-        $product ->rating = $request ->rate;
-        $product -> save();
-        $rating = new \willvincent\Rateable\Rating;
+            if(\Auth::check() && $request -> rate){
+                $product = Product::find($request->id);
+                $product ->rating = $request ->rate;
+                $product -> save();
+                $rating = new \willvincent\Rateable\Rating;
 
-        $rating->rating = $request->rate;
+                $rating->rating = $request->rate;
 
-        $rating->user_id = auth()->user()->id;
+                $rating->user_id = auth()->user()->id;
 
-        $product->ratings()->save($rating);
-        
-        return redirect()->route("product",$request->id);
+                $product->ratings()->save($rating);
+                
+                return redirect()->route("product",$request->id);
+            }else{
+                    return redirect("login");
+            }
         }else{
-            return redirect("login");
-
+            return redirect()->route("product",$request->id);
         }
-    }else{
-        return redirect()->route("product",$request->id);
-    }
     }
 
-    public function thisweek(){
-        Carbon::setWeekStartsAt(Carbon::SUNDAY);
-        Carbon::setWeekEndsAt(Carbon::SATURDAY);
-        $pro=Product::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-         return view('Webpages.thisweek' , compact('pro'));
-    }
+   
 
  
 }

@@ -1,6 +1,7 @@
 <?php
-Route::prefix('dashboard')->group(function(){
-    
+
+Route::group(['prefix'=>'dashboard','middleware' => 'admin'],function(){
+
     Route::get('/index' ,'dashboardrouts@index')->name('index');
 
     /*Users table routes  */
@@ -39,10 +40,8 @@ Route::prefix('dashboard')->group(function(){
 
    
 
-    Route::get('/contacts' , 'dashboardrouts@contacts')->name('contact');
     
     Route::get('/login' , 'dashboardrouts@login')->name('login');
-    Route::get('/register' , 'dashboardrouts@register')->name('register');
 
     
 });

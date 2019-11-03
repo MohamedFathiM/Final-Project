@@ -92,10 +92,10 @@ cursor: pointer;
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('dashboard/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="/img/users-img/{{Auth::user()->image}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="{{route('EditeUsers' ,Auth::id())}}" title="Edit You Profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -131,12 +131,7 @@ cursor: pointer;
               </p>
             </a>
             <ul class="nav nav-treeview ">
-              <li class="nav-item">
-                <a href="{{route('Admins')}}" class="nav-link {{Request::is('dashboard/Admins')?'active':''}}">
-                  
-                  <p>Admins</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="{{route('users')}}" class="nav-link {{Request::is('dashboard/users')?'active':''}}">
                   

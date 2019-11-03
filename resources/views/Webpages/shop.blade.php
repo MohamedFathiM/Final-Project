@@ -94,7 +94,11 @@
                     <div class="slider-range">
                         <input type="hidden"  name="min" id="hidden_minimum_price" value="{{$minPrice}}">
                         <input type="hidden" name="max" id="hidden_maximum_price" value="{{$maxPrice}}">
+<<<<<<< HEAD
                         <div data-min="1" data-max="10000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="{{$minPrice}}" data-value-max="{{$maxPrice}}" data-label-result="">
+=======
+                        <div data-min="10" data-max="1000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="{{$minPrice}}" data-value-max="{{$maxPrice}}" data-label-result="">
+>>>>>>> 14b8f4f9cf1aa02f1dfb10d7b847ab7c4ff88e44
                             <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
@@ -161,7 +165,7 @@
                        
                         $divStyle='style="display:none;"'; //hide div
                         // add condition
-                        if(@$color){
+                        if(@$color xor @$color == '%'){
                             $divStyle=''; // show div
                         }
                     ?>

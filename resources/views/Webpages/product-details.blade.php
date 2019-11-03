@@ -7,6 +7,10 @@
     <Style>
         a:hover{text-decoration:none;}
         a:focus{text-decoration:none;}
+        .single_product_thumb img{
+            width:723px;
+            height:747px;
+        }
     </style>
     @endsection
     @section('content')
@@ -33,6 +37,7 @@
                         <div class="single_product_thumb">
                             <div id="product_details_slider" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">
+<<<<<<< HEAD
                                     <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image:url({{asset('img/product-img/'.$product->image1)}});">
                                     </li>
                                     <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url({{asset('img/product-img/'.$product->image2)}});">
@@ -40,10 +45,20 @@
                                     <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url({{asset('img/product-img/'.$product->image3)}});">
                                     </li>
                                     <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url({{asset('img/product-img/'.$product->image1)}});">
+=======
+                                    <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image:url(/img/product-img/{{$product->image1}});">
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url(/img/product-img/{{$product->image2}});">
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url(/img/product-img/{{$product->image3}});">
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url(/img/product-img/{{$product->image1}});">
+>>>>>>> 14b8f4f9cf1aa02f1dfb10d7b847ab7c4ff88e44
                                     </li>
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
+<<<<<<< HEAD
                                         <a class="gallery_img" href="{{asset('img/product-img/'.$product->image3)}}">
                                             <img class="d-block w-100" style="width:500px;height:500px;"src="{{asset('img/product-img/'.$product->image1)}}" alt="First slide">
                                         </a>
@@ -61,6 +76,25 @@
                                     <div class="carousel-item">
                                         <a class="gallery_img" href="{{asset(''.$product->image1)}}">
                                             <img class="d-block w-100" style="width:500px;height:500px;" src="{{asset('img/product-img/'.$product->image1)}}" alt="Fourth slide">
+=======
+                                        <a class="gallery_img" href="/img/product-img/{{$product->image3}}">
+                                            <img class="d-block w-100" src="/img/product-img/{{$product->image1}}" alt="First slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="/img/product-img/{{$product->image2}}">
+                                            <img class="d-block w-100" src="/img/product-img/{{$product->image2}}" alt="Second slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="/img/product-img/{{$product->image3}}">
+                                            <img class="d-block w-100" src="/img/product-img/{{$product->image3}}" alt="Third slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="/img/product-img/{{$product->image1}}">
+                                            <img class="d-block w-100" src="/img/product-img/{{$product->image1}}" alt="Fourth slide">
+>>>>>>> 14b8f4f9cf1aa02f1dfb10d7b847ab7c4ff88e44
                                         </a>
                                     </div>
                                 </div>
