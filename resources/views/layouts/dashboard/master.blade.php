@@ -112,16 +112,7 @@ cursor: pointer;
               </p>
             </a>
           </li>
-          {{-- <li class="nav-item">
-            <a href="{{route('widgits')}}" class="nav-link {{Request::is('dashboard/widgets')?'active':''}}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-       --}}
+         
           <li class="nav-item has-treeview {{Request::is('dashboard/users')?'menu-open':''}}{{Request::is('dashboard/Admins')?'menu-open':''}}">
             <a href="#" class="nav-link {{Request::is('dashboard/users')?'active':''}}{{Request::is('dashboard/Admins')?'active':''}}">
               <i class="nav-icon fas fa-user"></i>
@@ -139,7 +130,9 @@ cursor: pointer;
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('Admins')}}" class="nav-link {{Request::is('dashboard/users')?'active':''}}">
+              
+               
+                <a href="{{route('Admins')}}"  class="nav-link {{Request::is('dashboard/Admins')?'active':''}}">
                   
                   <p>Admins</p>
                 </a>

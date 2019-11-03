@@ -75,13 +75,19 @@
               <td>{{$admin->name}}</td>
               <td>{{$admin->email}}</td>
               <td>{{$admin->role}}</td>
-              <td><img src="{{asset('img/users-img/'.$admin->image)}}" height=80px width=100px /></td>
-              <td>
-                  <a style="width:70px;" href="{{route('EditeUsers' ,$admin->id)}}" class="btn btn-primary">Edit</a>
-                <form method="POST" action="{{route('users.destroy' ,$admin->id)}}">
+              <td><img src="/img/users-img/{{$admin->image}}" width=100 height=80 alt="" ></td>
+              <td class="d-flex">
+              <?php 
+                //to hide element
+                $divStyle='display:none;'; 
+                ?>
+              
+                  <a style="width:70px;<?php if($admin->id == 1){echo $divStyle;} ?>" href="{{route('EditeUsers' ,$admin->id)}}" class="btn btn-primary">Edit</a>
+                  &nbsp;
+                <form method="POST" action="{{route('users.destroy' ,[$admin->id])}}">
                   {{ @csrf_field() }}
                   {{ method_field('DELETE') }}
-                    <button style="width:70px;" type="submit" class="btn btn-danger">Delete</button> </form>
+                    <button style="width:70px;<?php if($admin->id == 1){echo $divStyle;} ?>"  type="submit" class="btn btn-danger">Delete</button> </form>
 
               </td>
             </tr>
