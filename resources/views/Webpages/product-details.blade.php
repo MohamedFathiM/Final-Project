@@ -37,7 +37,6 @@
                         <div class="single_product_thumb">
                             <div id="product_details_slider" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">
-<<<<<<< HEAD
                                     <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image:url({{asset('img/product-img/'.$product->image1)}});">
                                     </li>
                                     <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url({{asset('img/product-img/'.$product->image2)}});">
@@ -45,15 +44,6 @@
                                     <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url({{asset('img/product-img/'.$product->image3)}});">
                                     </li>
                                     <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url({{asset('img/product-img/'.$product->image1)}});">
-=======
-                                    <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image:url(/img/product-img/{{$product->image1}});">
-                                    </li>
-                                    <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url(/img/product-img/{{$product->image2}});">
-                                    </li>
-                                    <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url(/img/product-img/{{$product->image3}});">
-                                    </li>
-                                    <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url(/img/product-img/{{$product->image1}});">
->>>>>>> 19b17c2f3b56ff9765638cec2de19d5a60f0f373
                                     </li>
                                 </ol>
                                 <div class="carousel-inner">

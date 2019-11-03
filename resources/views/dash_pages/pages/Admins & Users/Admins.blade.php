@@ -69,18 +69,16 @@
               <th>role</th>
               <th>Image</th>
               <th>Control</th></tr>
-            @foreach ($Admins as $admin)
-                
-           
+            @foreach ($Admins as $admin)           
             <tr>
               <td>{{$admin->id}}</td>
               <td>{{$admin->name}}</td>
               <td>{{$admin->email}}</td>
               <td>{{$admin->role}}</td>
-              <td>{{$admin->image}}</td>
+              <td><img src="{{asset('img/users-img/'.$admin->image)}}" height=80px width=100px /></td>
               <td>
                   <a style="width:70px;" href="{{route('EditeUsers' ,$admin->id)}}" class="btn btn-primary">Edit</a>
-                <form method="POST" action="{{route('users.destroy' ,[$admin->id])}}">
+                <form method="POST" action="{{route('users.destroy' ,$admin->id)}}">
                   {{ @csrf_field() }}
                   {{ method_field('DELETE') }}
                     <button style="width:70px;" type="submit" class="btn btn-danger">Delete</button> </form>

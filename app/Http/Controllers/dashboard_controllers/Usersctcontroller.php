@@ -136,8 +136,9 @@ class Usersctcontroller extends Controller
      */
     public function destroy($id)
     {
+        
        $users = User::findOrFail($id);
        $users->delete();
-        return redirect('dashboard/users');
+        return back();
     }
 }

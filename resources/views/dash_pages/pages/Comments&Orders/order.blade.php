@@ -32,6 +32,7 @@
                           <th>Commend</th>
                           <th>Product Name</th>
                           <th>TotalPrice</th>
+                          <th>Done</th>
                         </tr>
                         
                         @foreach($orders as $order)
@@ -47,18 +48,25 @@
                           <td>{{$order->phoneNumber}}</td>
                           <td>{{$order->comment}}</td>
                           <td>
-                          <ul>
-                         
-                          @foreach (DB::table('checkouts')->where('User_id','=',$order->User_id)->get() as $item)
+                          <ul>   
+                          @foreach (DB::table('checkouts')->where('User_id','=',$order->id)->get() as $item)
                               <li><a href="{{route('product',$item->product_id)}}">
                               {{$item->name}}</a></li>
                           @endforeach  
-                         
-                          
+               
                           </ul>
-
                           </td>
                           <td>{{$order->totalprice}}</td>
+                          <td class="d-flex">
+                              <form action="{{route('orders.update',$order->id)}}" method="post">
+                                  @csrf
+                                  @method('PUT')
+                              <select name="status" class="updateSelect" >
+                                  <option @if($order->status ==1)selected @endif>1</option>
+                                  <option @if($order->status ==0)selected @endif>0</option>
+                              </select>
+                              <button style="width:50px;font-size: 10px ;" type="submit"  class="btn btn-info">done</button> 
+                          </form> </td>
 
                           <td class="d-flex">  
                           
@@ -66,6 +74,7 @@
                             {{ @csrf_field() }}
                             {{ method_field('DELETE') }}
                               <button style="width:70px;" type="submit" class="btn btn-danger">Delete</button> </form>
+                             
                             </td>
                         </tr>
                         

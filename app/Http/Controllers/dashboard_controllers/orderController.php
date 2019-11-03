@@ -69,6 +69,7 @@ class orderController extends Controller
        $orders['phoneNumber'] =$input['phoneNumber'];
        $orders['comment'] =$input['comment'];
        $orders['email'] =$input['email'];
+       $orders['status']=0;
        $orders['totalprice'] =$input['totalprice'];
 
        $orders -> save();
@@ -117,7 +118,10 @@ class orderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $order= Order::findOrFail($id);
+        $order->fill($input)->save();
+        return back();
     }
 
     /**
