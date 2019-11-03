@@ -7,6 +7,10 @@
     <Style>
         a:hover{text-decoration:none;}
         a:focus{text-decoration:none;}
+        .single_product_thumb img{
+            width:723px;
+            height:747px;
+        }
     </style>
     @endsection
     @section('content')

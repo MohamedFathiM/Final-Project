@@ -161,7 +161,7 @@
                        
                         $divStyle='style="display:none;"'; //hide div
                         // add condition
-                        if(@$color){
+                        if(@$color xor @$color == '%'){
                             $divStyle=''; // show div
                         }
                     ?>

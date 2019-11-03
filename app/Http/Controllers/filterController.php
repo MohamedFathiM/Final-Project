@@ -45,7 +45,7 @@ class filterController extends Controller
         if(isset($input['color'])){
             $color= $input['color'];
         }else{
-            $color = 'silver';
+            $color = '%';
         }
     
                  /*Display products by view  and sort by */
@@ -55,21 +55,21 @@ class filterController extends Controller
                     //if user select Date 
                     case 'Date' :
                         $SortedValue = 'Date';
-                        $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color',$color)->orderBy('id','asc')->paginate(@$value);
+                        $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color','LIKE',$color)->orderBy('id','asc')->paginate(@$value);
                         return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>@$SortedValue,'value'=>@$value,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice,'color'=>$color]);
                         break;
 
                     //if user select Newest 
                     case 'Newest' :
                         $SortedValue = 'Newest';
-                        $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color',$color)->orderBy('id','desc')->paginate(@$value);
+                        $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color','LIKE',$color)->orderBy('id','desc')->paginate(@$value);
                         return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>@$SortedValue,'value'=>@$value,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice,'color'=>$color]);
                         break;
 
                     //if user select Popular                     
                     case 'Popular' :
                         $SortedValue = 'Popular';
-                        $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color',$color)->orderBy('rating','desc')->paginate(@$value);
+                        $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color','LIKE',$color)->orderBy('rating','desc')->paginate(@$value);
                         return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>@$SortedValue,'value'=>@$value,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice,'color'=>$color]);
                         break; 
                     

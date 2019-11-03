@@ -13,6 +13,10 @@
             #close:hover{
                 color:green;
             }
+           .imageCart img{
+                width:120px;
+                height:90px !important;
+            }
         </style>
        @endsection
         @section('content')
@@ -42,8 +46,8 @@
                                 @endphp
                                 @foreach($products as $product)
                                     <tr>
-                                        <td class=""><a title="Click to Delete" href="{{route('cartdestroy',$product->product_id)}}"><span id="close">+</span></a>
-                                            <a href="#"><img src="{{$product->image}}" alt="Product" width=120px height=150px></a>
+                                        <td class="imageCart"><a title="Click to Delete" href="{{route('cartdestroy',$product->product_id)}}"><span id="close">+</span></a>
+                                            <a href="#"><img src="/img/product-img/{{$product->image}}" alt="Product" width=120px height=150px></a>
                                         </td>
                                         
                                         <td class="cart_product_desc">
