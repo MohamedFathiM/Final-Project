@@ -94,11 +94,7 @@
                     <div class="slider-range">
                         <input type="hidden"  name="min" id="hidden_minimum_price" value="{{$minPrice}}">
                         <input type="hidden" name="max" id="hidden_maximum_price" value="{{$maxPrice}}">
-<<<<<<< HEAD
-                        <div data-min="1" data-max="10000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="{{$minPrice}}" data-value-max="{{$maxPrice}}" data-label-result="">
-=======
                         <div data-min="10" data-max="1000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="{{$minPrice}}" data-value-max="{{$maxPrice}}" data-label-result="">
->>>>>>> 14b8f4f9cf1aa02f1dfb10d7b847ab7c4ff88e44
                             <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
@@ -181,9 +177,9 @@
                         <div class="single-product-wrapper list" >
                             <!-- Product Image -->
                             <div class="product-img">
-                            <img src="{{asset('img/product-img/'.$product ->image1)}}" style="width: 300px;height: 200px" alt="">
+                            <img src="{{asset('img/product-img/'.$product ->image1)}}" style="width: 335px;height: 416px" alt="">
                                 <!-- Hover Thumb -->
-                                <img class="hover-img zoom" src="{{asset('img/product-img/'.$product -> image2)}}"style="width: 300px;height: 200px"  alt="">
+                                <img class="hover-img zoom" src="{{asset('img/product-img/'.$product -> image2)}}" style="width: 335px;height: 416px"  alt="">
                             </div>
 
                             <!-- Product Description -->
@@ -199,7 +195,7 @@
                                 <!-- Ratings & Cart -->
                                 <div class="ratings-cart text-right">
                                     <div class="ratings">
-                                    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="10" data-step="0.1" value="{{ $product->averageRating }}" data-size="xs" disabled="">
+                                    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $product->averageRating }}" data-size="xs" disabled="">
 
                                     </div>
                                     <div class="cart">
