@@ -24,6 +24,7 @@ class CreateOrderTable extends Migration
             $table->integer('comment');
             $table->integer('totalprice');
             $table->integer('User_id');    
+            $table->integer('status');    
             $table->timestamps();
         });
     }
