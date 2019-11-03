@@ -23,9 +23,9 @@
                     <div class="col-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mt-50">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                                 <li class="breadcrumb-item"><a href="#">Furniture</a></li>
-                                <li class="breadcrumb-item"><a href="#"></a></li>
+                                <li class="breadcrumb-item"><a href="../shop/{{$product->category::find($product->category_id)->id}}">{{$product->category::find($product->category_id)->name}}</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
                             </ol>
                         </nav>

@@ -177,9 +177,9 @@
                         <div class="single-product-wrapper list" >
                             <!-- Product Image -->
                             <div class="product-img">
-                            <img src="{{asset('img/product-img/'.$product ->image1)}}" style="width: 300px;height: 200px" alt="">
+                            <img src="{{asset('img/product-img/'.$product ->image1)}}" style="width: 335px;height: 416px" alt="">
                                 <!-- Hover Thumb -->
-                                <img class="hover-img zoom" src="{{asset('img/product-img/'.$product -> image2)}}"style="width: 300px;height: 200px"  alt="">
+                                <img class="hover-img zoom" src="{{asset('img/product-img/'.$product -> image2)}}" style="width: 335px;height: 416px"  alt="">
                             </div>
 
                             <!-- Product Description -->

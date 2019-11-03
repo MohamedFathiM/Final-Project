@@ -52,18 +52,19 @@
                                     <input type="email" class="form-control" id="email" placeholder="Email" value="" name="email">
                                     </div>
 
-                                    @php 
+                                    @php
                                     $all = 0 ;
                                     $delv = 0;
                                     @endphp
-                                    @foreach (App\Cart::where('user_id',Auth::id()) as $item)
-                                        
+                                    
+                                    @foreach(App\Cart::where('user_id',Auth::user()->id)->get() as $item)
                                      @php
                                         $FinalPrice =  $item->price * $item->qauntity;
+                                        
                                         $all += $FinalPrice;
                                     @endphp
                                     @endforeach
-                                    
+                                  
                                     <div class="col-12 mb-3">
                                         <select class="w-100" id="country" name="city">
                                         <option value="Egypt">Egypt</option>
@@ -109,9 +110,9 @@
                             <ul class="summary-table">
                                 <li><span>subtotal:</span> 
                                     
-                                    <span>$ {{ $all}}</span></li>
+                                    <span>$ {{$all}}</span></li>
                                 <li><span>delivery:</span> <span>Free</span></li>
-                                <li><span>total:</span> <span>$$ {{$all}}</span></li>
+                                <li><span>total:</span> <span>$ {{$all}}</span></li>
                             </ul>
 
                             <div class="payment-method">
