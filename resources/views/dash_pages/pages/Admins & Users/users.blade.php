@@ -115,12 +115,12 @@
   <td>{{$user->role}}</td>
   <td><img src="{{asset('img/users-img/'.$user->image)}}" height=80px width=100px /></td>
   <td class="d-flex">  
-  <a style="width:70px;" href="{{route('EditeUsers' ,$user->id)}}" class="btn btn-primary">Edit</a>
+  <a style="width:70px;"  href="{{route('EditeUsers' ,$user->id)}}" class="btn btn-primary">Edit</a>
   &nbsp;
   <form method="POST" action="{{route('users.destroy' ,[$user->id])}}">
     {{ @csrf_field() }}
     {{ method_field('DELETE') }}
-      <button style="width:70px;" type="submit" class="btn btn-danger">Delete</button> </form>
+      <button style="width:70px;"  type="submit" class="btn btn-danger">Delete</button> </form>
     </td>
 </tr>
 

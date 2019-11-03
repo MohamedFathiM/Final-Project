@@ -124,7 +124,11 @@ class Usersctcontroller extends Controller
             $User->image=$filename;
         }
         $User->save();
-        return redirect('dashboard/users')->with('message','data updated');
+        if($User -> role == 0){
+             return redirect('dashboard/Admins')->with('message','data updated');
+        }else{
+            return redirect('dashboard/users')->with('message','data updated');
+        }
         
     }
 

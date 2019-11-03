@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->text('description');
             $table->boolean('status');
             $table->unsignedBigInteger('product_id')->index()->nullable();
-            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('user_id')->index()->onDelete('cascade');
             $table->timestamps();
         });
     }

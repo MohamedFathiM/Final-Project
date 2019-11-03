@@ -22,16 +22,14 @@
                     <table class="table table-striped table-class " id= "table-id">
                         <tr scope="row">
                           <th>Id</th>
-                          <th>FirstName</th>
-                          <th>LastName</th>
-                          <th>Email</th>
+                          <th>Name</th>
+                          <th style="width:10px;">Email</th>
                           <th>Country</th>
                           <th>Address</th>
                           <th>Zipcode</th>
-                          <th>Phonnumber</th>
-                          <th>Commend</th>
+                          <th>Phone</th>
                           <th>Product Name</th>
-                          <th>TotalPrice</th>
+                          <th>Total</th>
                           <th>Done</th>
                         </tr>
                         
@@ -39,14 +37,12 @@
                         
                         <tr scope="row">
                           <td>{{$order->id}}</td>
-                          <td>{{$order->first_name}}</td>
-                          <td>{{$order->second_name}}</td>
-                          <td>{{$order->email}}</td>
+                          <td>{{$order->first_name . ' ' . $order->second_name}}</td>
+                          <td style="width:10px;">{{$order->email}}</td>
                           <td>{{$order->country}}</td>
                           <td>{{$order->address}}</td>
                           <td>{{$order->zipCode}}</td>
                           <td>{{$order->phoneNumber}}</td>
-                          <td>{{$order->comment}}</td>
                           <td>
                           <ul>   
                           @foreach (DB::table('checkouts')->where('User_id','=',$order->User_id)->get() as $item)
@@ -56,16 +52,16 @@
                
                           </ul>
                           </td>
-                          <td>{{$order->totalprice}}</td>
+                          <td>$ {{$order->totalprice}}</td>
                           <td class="d-flex">
                               <form action="{{route('orders.update',$order->id)}}" method="post">
                                   @csrf
                                   @method('PUT')
                               <select name="status" class="updateSelect" >
-                                  <option @if($order->status ==1)selected @endif>1</option>
-                                  <option @if($order->status ==0)selected @endif>0</option>
-                              </select>
-                              <button style="width:50px;font-size: 10px ;" type="submit"  class="btn btn-info">done</button> 
+                                  <option @if($order->status ==1)selected @endif value="1"> Done</option>
+                                  <option @if($order->status ==0)selected @endif value="0"> Pending</option>
+                              </select><br>
+                              <button style="width:50px;font-size: 10px ;" type="submit"  class="btn btn-info">Submit</button> 
                           </form> </td>
 
                           <td class="d-flex">  
