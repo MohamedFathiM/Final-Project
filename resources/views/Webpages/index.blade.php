@@ -1,10 +1,14 @@
 
     @extends('layouts.master')
     @section('content')
+                       
         <!-- Product Catagories Area Start -->
         <div class="products-catagories-area clearfix">
+                        @if(Session::get('error'))
+                            <div class="alert alert-danger" role="alert">{{Session::get('error')}}</div>
+                        @endif
             <div class="amado-pro-catagory clearfix">
-
+                       
                 <!-- Single Catagory -->
                 @if(count($cats) > 0 )
                 @foreach ($cats as $item)
