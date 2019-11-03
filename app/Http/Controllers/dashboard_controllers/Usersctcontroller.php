@@ -15,7 +15,7 @@ class Usersctcontroller extends Controller
      */
     public function index()
     {
-        $users=User::orderby('created_at', 'asc')->get();
+        $users=User::orderby('created_at', 'asc')->where('role' , '1')->get();
         return view('dash_pages.pages.Admins & Users.users' , compact('users'));
     }
 

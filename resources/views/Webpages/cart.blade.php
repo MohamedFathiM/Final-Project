@@ -46,8 +46,13 @@
                                 @endphp
                                 @foreach($products as $product)
                                     <tr>
+<<<<<<< HEAD
+                                        <td class=""><a title="Click to Delete" href="{{route('cartdestroy',$product->product_id)}}"><span id="close">+</span></a>
+                                            <a href="#"><img src="{{asset('img/product-img/'.$product->image)}}" alt="Product" width=120px height=150px></a>
+=======
                                         <td class="imageCart"><a title="Click to Delete" href="{{route('cartdestroy',$product->product_id)}}"><span id="close">+</span></a>
                                             <a href="#"><img src="/img/product-img/{{$product->image}}" alt="Product" width=120px height=150px></a>
+>>>>>>> fcb1078aa586c60e17810332c7562fd34cdffc41
                                         </td>
                                         
                                         <td class="cart_product_desc">

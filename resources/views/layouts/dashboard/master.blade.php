@@ -138,6 +138,12 @@ cursor: pointer;
                   <p>Users</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('Admins')}}" class="nav-link {{Request::is('dashboard/users')?'active':''}}">
+                  
+                  <p>Admins</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview {{Request::is('dashboard/Products')?'menu-open':''}}{{Request::is('dashboard/Categories')?'menu-open':''}}">

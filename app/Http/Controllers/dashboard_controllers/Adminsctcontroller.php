@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\dashboard_controllers;
 
-use App\Admin;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +15,7 @@ class Adminsctcontroller extends Controller
      */
     public function index()
     {
-        $Admins=Admin::All();
+        $Admins=User::where('role', '0')->get();
         return view('dash_pages.pages.Admins & Users.Admins' , compact('Admins'));
     }
 
