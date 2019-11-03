@@ -10,5 +10,8 @@ class Cart extends Model
         'image','name','price','user_id' ,'product_id', 'qauntity'  
     ];
 
+    public function Checkout(){
+        return $this -> belingsTo(Checkout::class);
+    }
 
 }

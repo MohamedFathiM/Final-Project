@@ -47,7 +47,7 @@
               @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name of Product</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name" >
                 </div>
                 <div class="form-group">
                   <label for="tectarea">Description</label>

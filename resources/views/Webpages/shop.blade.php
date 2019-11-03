@@ -94,7 +94,7 @@
                     <div class="slider-range">
                         <input type="hidden"  name="min" id="hidden_minimum_price" value="{{$minPrice}}">
                         <input type="hidden" name="max" id="hidden_maximum_price" value="{{$maxPrice}}">
-                        <div data-min="1" data-max="100" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="{{$minPrice}}" data-value-max="{{$maxPrice}}" data-label-result="">
+                        <div data-min="1" data-max="10000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="{{$minPrice}}" data-value-max="{{$maxPrice}}" data-label-result="">
                             <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
@@ -195,7 +195,7 @@
                                 <!-- Ratings & Cart -->
                                 <div class="ratings-cart text-right">
                                     <div class="ratings">
-                                    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $product->averageRating }}" data-size="xs" disabled="">
+                                    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="10" data-step="0.1" value="{{ $product->averageRating }}" data-size="xs" disabled="">
 
                                     </div>
                                     <div class="cart">

@@ -57,14 +57,14 @@ public function sort( Request $request,$id){
     $minPrice = @$input['min'] ; 
     $maxPrice = @$input['max'] ;
     }else{
-        $minPrice = 1 ; 
-        $maxPrice =100 ;
+        $minPrice = Product::all()->min('price') ; 
+        $maxPrice =Product::all()->max('price') ; ;
     }
 
     if(isset($input['color'])){
         $color= $input['color'];
      }else{
-         $color = 'silver';
+         $color = '';
      }
    
                /*Display products by view  and sort by */
@@ -80,14 +80,14 @@ public function sort( Request $request,$id){
                     $SortedValue = 'Newest';
                     $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color',$color)->orderBy('id','desc')->paginate(@$value);
                     return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>@$SortedValue,'value'=>@$value,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice,'color'=>$color]);
-                    break;
+                    break; 
                 case 'Popular' :
                     $SortedValue = 'Popular';
                     $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->where('color',$color)->orderBy('rating','desc')->paginate(@$value);
                     return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>@$SortedValue,'value'=>@$value,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice,'color'=>$color]);
                     break; 
                 default:
-                    $product = Product::where('category_id',$id)->where('price','>=',1)->where('price','<=',100)->orderBy('id','asc')->paginate(12);
+                    $product = Product::where('category_id',$id)->where('price','>=',$minPrice)->where('price','<=',$maxPrice)->orderBy('id','asc')->paginate(12);
                     return view('Webpages.shop',['id'=>Category::findOrFail($id),'products'=>@$product , 'SortedValue'=>'Date','value'=>12 ,'minPrice'=>$minPrice,'maxPrice'=>$maxPrice]);
                
         }
