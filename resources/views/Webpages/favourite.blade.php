@@ -29,9 +29,9 @@
                         <div class="single-product-wrapper"  >
                             <!-- Product Image -->
                             <div class="product-img">
-                            <img src="{{$product ->image1}}" alt="">
+                            <img src="{{asset('img/product-img/'.$product ->image1)}}"style="width:300px;height:300px;" alt="">
                                 <!-- Hover Thumb -->
-                                <img class="hover-img zoom" src="{{$product -> image2}}" alt="">
+                                <img class="hover-img zoom" src="{{asset('img/product-img/'.$product -> image2)}}" style="width:300px;height:300;"alt="">
                             </div>
 
                             <!-- Product Description -->
