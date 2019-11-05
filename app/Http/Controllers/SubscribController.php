@@ -21,6 +21,9 @@ class SubscribController extends Controller
 
 
     public function store(Request $request){
+        $validatedData = $request->validate([
+            'email' => 'required'
+        ]);
         $input = $request->all();
         $subscribe = new Subscribe();
         $subscribe['email']=$request->input('email');
