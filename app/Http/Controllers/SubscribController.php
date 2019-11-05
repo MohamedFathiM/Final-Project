@@ -26,10 +26,14 @@ class SubscribController extends Controller
         ]);
         $input = $request->all();
         $subscribe = new Subscribe();
+       if( $subscribe['email']=$request->input('email')){
+        return back()->with('message' , 'You are realy subscribed');
+       }else{
+
         $subscribe['email']=$request->input('email');
         $subscribe->save();
         return back()->with('message' , 'Thank for Subscribe we will send you any offers soon');
-
+    }
 
     }
 }
