@@ -132,7 +132,7 @@ class cartController extends Controller
      $cart = Cart::findOrFail($id);
      $cart['qauntity'] = $input['quantity'];
      $cart ->save();
-       
+     return back(); 
 
      $cartt = Checkout::findOrFail($id);
      $cartt['qauntity'] = $input['quantity'];

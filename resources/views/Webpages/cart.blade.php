@@ -59,7 +59,7 @@
                                             $FinalPrice = $product->price * $product->qauntity;
                                             $all += $FinalPrice;
                                         @endphp
-                                            <span>$ {{$FinalPrice}}</span>
+                                            <span>$ {{$product -> price}}</span>
                                         </td>
                                         
                                         <td class="qty">
