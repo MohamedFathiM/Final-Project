@@ -12,18 +12,20 @@
                 <!-- Single Catagory -->
                 @if(count($cats) > 0 )
                 @foreach ($cats as $item)
-                    @if(App\Product::where('category_id',$item -> id)->min('price') > 0)
-                        <div class="single-products-catagory clearfix">
-                        <a href="shop\{{$item -> id}}">
-                    <img src="/img/category-img/{{$item->image}}"style="width:500px;height:500px;" alt="">
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <div class="line"></div>
-                                <p>From {{App\Product::where('category_id',$item -> id)->min('price')}}</p>
-                                    <h4>{{$item -> name}}</h4>
-                                </div>
-                            </a>
-                        </div>               
+                    @if($item-> status == 1 )
+                        @if(App\Product::where('category_id',$item -> id)->min('price') > 0)
+                            <div class="single-products-catagory clearfix">
+                            <a href="shop\{{$item -> id}}">
+                        <img src="/img/category-img/{{$item->image}}"style="width:500px;height:500px;" alt="">
+                                    <!-- Hover Content -->
+                                    <div class="hover-content">
+                                        <div class="line"></div>
+                                    <p>From {{App\Product::where('category_id',$item -> id)->min('price')}}</p>
+                                        <h4>{{$item -> name}}</h4>
+                                    </div>
+                                </a>
+                            </div>   
+                    @endif            
                 @endif
                 @endforeach
                 @else

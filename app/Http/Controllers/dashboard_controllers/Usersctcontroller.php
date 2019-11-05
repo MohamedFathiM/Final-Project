@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard_controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class Usersctcontroller extends Controller
 {
@@ -49,7 +50,7 @@ class Usersctcontroller extends Controller
         $User=new User();
         $User['name']=$request->input('name');
         $User['email']=$request->input('email');
-        $User['password']=$request->input('password');
+        $User['password']=$request->Hash::make(input('password'));
         $User['role']=$request->input('role');
         // $users->image=$request->input('image');
         if($request->hasfile('image')){
@@ -113,7 +114,7 @@ class Usersctcontroller extends Controller
         $User=User::find($id);
         $User['name']=request('name');
         $User['email']=request('email');
-        $User['password']=request('password');
+        $User['password']=Hash::make(request('password'));
         $User['role']=request('role');
         // $users->image=$request->input('image');
         if($request->hasfile('image')){

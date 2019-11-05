@@ -22,12 +22,12 @@
                     </div>
                    
                 @endif
-                @if(Session::get('message'))
-                <div class="alert alert-success">
-                <strong>
-                {{Session::get('message')}}
-                </strong>
-                </div>
+                @if(Session::get('OrderMessage'))
+                    <div class="alert alert-success">
+                    <strong>
+                        {{Session::get('OrderMessage')}}
+                    </strong>
+                    </div>
                 @endif
                 <div class="row">
                     <div class="col-12 col-lg-8">

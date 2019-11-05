@@ -33,13 +33,15 @@ Route::group(['prefix'=>'dashboard','middleware' => 'admin'],function(){
     Route::put('/UpdateProducts/{id}' , 'Productcontroller@update')->name('UpdateProducts');
     Route::delete('/Products/{id}', 'Productcontroller@destroy')->name('product.destroy');
     
+
+    //comments 
     Route::resource('/comments' ,'commentController');
+
+
+    //orders table 
     Route::resource('/orders' ,'orderController');
    
-    
-
-   
-
+  
     
     Route::get('/login' , 'dashboardrouts@login')->name('login');
 

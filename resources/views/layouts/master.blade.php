@@ -131,6 +131,12 @@
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
                 <a href="{{route('thisweek')}}" class="btn amado-btn active">New this week</a>
+                <br>
+                @if(\Auth::check())
+                @if(\Auth::user()->role == 0)
+                <a href="{{route('index')}}" class="btn amado-btn active">Dashboard</a>
+                @endif
+                @endif
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">

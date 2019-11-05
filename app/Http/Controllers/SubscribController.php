@@ -10,8 +10,12 @@ class SubscribController extends Controller
 {
 
     public function index(){
-        $subscribes=Subscribe::all();
-        return view('dash_pages.pages.Subscribers' , compact('subscribes'));
+        if(\Auth::check() && \Auth::user()->role==0){
+            $subscribes=Subscribe::all();
+            return view('dash_pages.pages.Subscribers' , compact('subscribes'));
+        }else{
+            return redirect()->route('login');
+        }
     }
 
 

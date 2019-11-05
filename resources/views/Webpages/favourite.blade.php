@@ -12,16 +12,13 @@
         </style>
        @endsection
        @section('content')
-        <div class="shop_sidebar_area padding-50">
-            
-        </div>
-        <div class="amado_product_area section-padding-100">
-        
-             
-               
-    {{-- this the beginnig of the products which display with ajax  --}}
-    <div class ="row">
-    <p class="lead">The high rated products according to users opinions</p>
+       <div class="amado_product_area section-padding-100">
+        <div class="container-fluid">
+        <h3>The high rated products according to users opinions</h3>
+        <br>
+        <hr>
+            <div class="row">
+
                     <!-- Single Product Area -->
                 @if(count($products) > 0)
                     @foreach($products as $product)

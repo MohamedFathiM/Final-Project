@@ -136,7 +136,22 @@
                             <br><br>
                             {{-- addcomments  --}}
 
-                            <form action="{{route('comments.store')}}" method="post">
+                            @if (count($errors) > 0)
+
+                                <div class="alert alert-danger">
+
+                                 <strong>Whoops!</strong> There were some problems with your input.
+
+                                <ul>
+
+                                @foreach ($errors->all() as $error)
+
+                                    <li>{{ $error }}</li>
+
+                                @endforeach
+                                @endif
+
+                            <form action="{{route('saveComment')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                  <input type="hidden" name="title" value="{{ $product->name }}">

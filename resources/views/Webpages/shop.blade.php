@@ -115,7 +115,7 @@
                         <div class="product-topbar d-xl-flex align-items-end justify-content-between">
                             <!-- Total Products -->
                             <div class="total-products">
-                            <p><span style="margin-right:80px;">Showing 1-{{@$value}} 0f {{count($products)}}</span>
+                            <p><span style="margin-right:30px;">Showing 1-{{@$value}} 0f {{count($products)}}</span>
                                 <span style="fontsize:15px;"> Price <mark>{{$minPrice}}</mark> to <mark>{{$maxPrice}} <mark> </span>
 
 

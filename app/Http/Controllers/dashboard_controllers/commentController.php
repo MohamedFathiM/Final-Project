@@ -39,19 +39,7 @@ class commentController extends Controller
     public function store(Request $request)
     {
      
-        if(\Auth::check()){
-            $product = Product::find($request->id);
-            $comments=new Comment();
-            $comments['description']=$request->input('description');
-            $comments['status']=1;
-            $comments['product_id']=$request->input('product_id');
-            $comments['user_id']= \Auth::id();
-            $comments->save();
-            return back();
-        }else{
-            return redirect("login");
-
-        }
+      
 
        }
 

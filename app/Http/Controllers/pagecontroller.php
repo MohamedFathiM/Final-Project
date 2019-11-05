@@ -22,14 +22,15 @@ class pagecontroller extends Controller
 
 
 
-
-   
-
-
     //View the checkout page 
     public function checkout(){
-        return view('Webpages.checkout');
+        if(\Auth::check()){
+             return view('Webpages.checkout');
+        }else{
+             return redirect('login');
+        }
     }
+
 
     //View the productDetails and its comments 
     public function product($id){
@@ -39,25 +40,21 @@ class pagecontroller extends Controller
     }
 
   
-
-   
-
         //Function for Rating Start System
     public function RateFun(Request $request){
         if(isset($request['rateBtn'])){
             if(\Auth::check() && $request -> rate){
+                
                 $product = Product::find($request->id);
                 $product ->rating = $request ->rate;
                 $product -> save();
+                //package for ratings 
                 $rating = new \willvincent\Rateable\Rating;
-
                 $rating->rating = $request->rate;
-
                 $rating->user_id = auth()->user()->id;
-
                 $product->ratings()->save($rating);
-                
                 return redirect()->route("product",$request->id);
+
             }else{
                     return redirect("login");
             }
@@ -66,7 +63,28 @@ class pagecontroller extends Controller
         }
     }
 
-   
+
+
+    //store the users comments 
+    public function storeComment(Request $request){
+        if(\Auth::check()){
+            $validatedData = $request->validate([
+                'description' => 'required'
+            ]);
+            $product = Product::find($request->id);
+            $comments=new Comment();
+            $comments['description']=$request->input('description');
+            $comments['status']=1;
+            $comments['product_id']=$request->input('product_id');
+            $comments['user_id']= \Auth::id();
+            $comments->save();
+            return back();
+        }else{
+            return redirect("login");
+
+        }
+
+    } 
 
  
 }

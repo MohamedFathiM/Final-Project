@@ -1,47 +1,7 @@
 @extends('layouts.dashboard.master')
 @section('content')
 <div class="content-wrapper">
-       {{-- start modal --}}
-       <!-- Button trigger modal -->
-       <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal">
-       <b> Add anew Admin</b>
-      </button>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add Admin</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form action="#" method="post" enctype="multipart/form-data" >
-                @csrf
-                <div class="form-group">
-                    <label for="cc-name" class="control-label mb-1">Name</label>
-                    <input id="cc-name"  type="text" class="form-control name" aria-required="true" aria-invalid="false" >
-                </div>
-                <div class="form-group ">
-                    <label for="cc-name" class="control-label mb-1">Email</label>
-                    <input id="cc-email"  type="email" class="form-control cc-name valid email" >
-                </div>
-                 <div class="form-group">
-                    <label for="cc-number" class="control-label mb-1">password</label>
-                    <input id="cc-number"  type="password" class="form-control cc-number identified visa password" >
-                </div>
-                <label for="cc-name" class="control-label mb-1">role</label>
-                <input id="cc-name"  type="text" class="form-control cc-number identified visa password" >
-            </div>
-               
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div></form>
-          </div>
-        </div>
+ 
     
       <section class="content">
           <div class="container-fluid">

@@ -15,7 +15,6 @@ Route::get('/','pagecontroller@index')->name('home');
 
 
 Route::get('/cart','cartController@index')->name('cart');
-Route::get('/Checkout','cartController@indexx')->name('Checkout');
 Route::put('/cart/{id}','cartController@update')->name('cartupdate');
 Route::post('/cart','cartController@store')->name('cartstore');
 Route::get('/cart/{id}/delete','cartController@destroy')->name('cartdestroy');
@@ -35,10 +34,13 @@ Route::any('/search','searchController@mysearch')->name('searchproduct');
 //new this week Route
 Route::any('/prodsthisweek','thisWeekController@thisweek')->name('thisweek');
 
+
+//subscribers 
 Route::any('/subscribers','SubscribController@index')->name('subscribers');
 Route::any('/subscribe','SubscribController@store')->name('subscribe');
 
-Route::any('/comment','pagecontroller@comment')->name('comment');
+//Comments 
+Route::post('/comment','pagecontroller@storeComment')->name('saveComment');
 
 Route::get('/favourite','favouriteController@index')->name('favourite');
 
